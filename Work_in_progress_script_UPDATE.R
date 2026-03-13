@@ -617,7 +617,7 @@ err_emm_plot_df <- summary(
 # Plotting Denemeleri -----------------------------------------------------
 
 # shared jitter object for participant-level layers
-pos_jit <- position_jitter(width = 0.08, height = 0, seed = 123)
+pos_jit <- position_jitter(width = 0.08, height = 0.02, seed = 123)
 
 p_err <- ggplot() +
   geom_line(
