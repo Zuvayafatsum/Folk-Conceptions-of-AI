@@ -391,8 +391,8 @@ library(ggprism)
 # Visualization-only RT trimming:
 # Keep trials between the 1st and 99th percentile within each sentence category.
 # Change these if you want a different trimming rule.
-rt_trim_lower <- 0.05
-rt_trim_upper <- 0.95
+# rt_trim_lower <- 0.05
+# rt_trim_upper <- 0.95
 
 # Category order: Human in the middle
 plot_order <- c("Tool","AI", "Human")
@@ -415,12 +415,14 @@ df_plot <- df_cov %>%
 df_plot_rt_trimmed <- df_plot %>%
   group_by(Sentence_Category) %>%
   mutate(
-    rt_q_low  = quantile(RT_sec, probs = rt_trim_lower, na.rm = TRUE),
-    rt_q_high = quantile(RT_sec, probs = rt_trim_upper, na.rm = TRUE)
+    rt_lower_bound = 0.200,  # 200 ms in seconds
+    rt_upper_bound = quantile(RT_sec, probs = 0.975, na.rm = TRUE)
   ) %>%
   ungroup() %>%
-  filter(RT_sec >= rt_q_low, RT_sec <= rt_q_high) %>%
-  select(-rt_q_low, -rt_q_high)
+  filter(RT_sec > rt_lower_bound, RT_sec <= rt_upper_bound) %>%
+  select(-rt_lower_bound, -rt_upper_bound)
+
+cat("\nRT visualization trimming:", nrow(df_plot) - nrow(df_plot_rt_trimmed), "trials excluded (", round(100 * (nrow(df_plot) - nrow(df_plot_rt_trimmed)) / nrow(df_plot), 2), "%)\n", sep = "")
 
 # Use the same RT-trimmed trials for error-rate dots as well
 df_plot_err_trimmed <- df_plot_rt_trimmed
@@ -489,39 +491,38 @@ p_rt <- ggplot() +
     data = rt_participant_means,
     aes(x = Sentence_Category, y = participant_mean_rt, group = Participant_Private_ID),
     color = "gray60",
-    alpha = 0.2,
+    alpha = 0.15,
     linewidth = 0.5,
     position = pos_jit
   ) +
   geom_col(
     data = rt_emm_plot_df,
     aes(x = Sentence_Category, y = emmean, color = Sentence_Category), fill = NA,
-    width = 0.4,
-    linewidth = 1,
-    alpha = 0.55
+    width = 0.3,
+    linewidth = 1.25,
+    alpha = 0.45
   ) +
   
   geom_point(
     data = rt_participant_means,
     aes(x = Sentence_Category, y = participant_mean_rt, color = Sentence_Category),
-    alpha = 0.55,
-    size = 1.8,
+    alpha = 0.2,
+    size = 3,
     position = pos_jit
   ) +
   geom_errorbar(
     data = rt_emm_plot_df,
-    aes(x = Sentence_Category, ymin = lower, ymax = upper),
-    width = 0.10,
-    linewidth = 0.75,
-    color = "black"
+    aes(x = Sentence_Category, color= Sentence_Category,ymin = lower, ymax = upper),
+    width = 0.1,
+    linewidth = 2,
+
   ) + 
-  ylim(0,7)+
   theme_prism() +
   theme(
     legend.position = "none",
     axis.title = element_blank(),
     plot.title = element_blank(),
-    axis.text.x = element_blank()
+    axis.text.x = element_blank(), aspect.ratio = 1
   )
 
 
@@ -557,7 +558,7 @@ p_rt <- ggplot() +
     alpha = 0.4,
     size = 1.6
   ) +
-  # model-based 95% CI (shifted right)
+  # model-based 95% ci (shifted right)
   geom_errorbar(
     data = rt_emm_plot_df,
     aes(x = Sentence_Category, ymin = lower, ymax = upper),
@@ -576,7 +577,6 @@ p_rt <- ggplot() +
     color = "black",
     position = pos_nudge_right
   ) +
-  ylim(0,7)+
   scale_x_discrete(limits = plot_order) +
   theme_prism() +
   theme(
@@ -589,32 +589,8 @@ p_rt <- ggplot() +
 p_rt
 
 
-# Plotting Denemeleri - ERROR -----------------------------------------------------
+# FIGURE: ERROR RATE -----------------------------------------------------
 
-
-# 1) Participant-level error rates per category (for dots)
-err_participant_rates <- df_plot_err_trimmed  %>%
-  group_by(Participant_Private_ID, Sentence_Category) %>%
-  summarise(
-    participant_error_rate = mean(Error_Flag, na.rm = TRUE),
-    .groups = "drop"
-  )
-
-# 2) Model-based adjusted probabilities from emmeans (bars)
-emm_err_plot <- emmeans(model_error_cov, ~ Sentence_Category, weights = "proportional")
-
-err_emm_plot_df <- summary(
-  emm_err_plot,
-  type = "response",
-  infer = c(TRUE, FALSE)
-) %>%
-  as.data.frame() %>%
-  transmute(
-    Sentence_Category = factor(Sentence_Category, levels = plot_order),
-    emmean = prob,
-    lower = asymp.LCL,
-    upper = asymp.UCL
-  )
 
 
 # Plotting Denemeleri -----------------------------------------------------
@@ -627,44 +603,41 @@ p_err <- ggplot() +
     data = err_participant_rates,
     aes(x = Sentence_Category, y = participant_error_rate, group = Participant_Private_ID),
     color = "gray60",
-    alpha = 0.2,
+    alpha = 0.15,
     linewidth = 0.5,
     position = pos_jit
   ) +
   geom_col(
     data = err_emm_plot_df,
     aes(x = Sentence_Category, y = emmean, color = Sentence_Category), fill = NA,
-    width = 0.4,
-    linewidth = 1,
-    alpha = 0.55
+    width = 0.3,
+    linewidth = 1.25,
+    alpha = 0.45
   ) +
   
   geom_point(
     data = err_participant_rates,
     aes(x = Sentence_Category, y = participant_error_rate, color = Sentence_Category),
-    alpha = 0.55,
-    size = 1.8,
+    alpha = 0.2,
+    size = 3,
     position = pos_jit
   ) +
   geom_errorbar(
     data = err_emm_plot_df,
-    aes(x = Sentence_Category, ymin = lower, ymax = upper),
-    width = 0.10,
-    linewidth = 0.75,
-    color = "black"
+    aes(x = Sentence_Category, color= Sentence_Category,ymin = lower, ymax = upper),
+    width = 0.1,
+    linewidth = 2,
+    
   ) + 
   theme_prism() +
   theme(
     legend.position = "none",
     axis.title = element_blank(),
     plot.title = element_blank(),
-    axis.text.x = element_blank()
+    axis.text.x = element_blank(), aspect.ratio = 1
   )
 
-
 p_err
-
-
 
 
 # ------------------------------------------------------------------------------
