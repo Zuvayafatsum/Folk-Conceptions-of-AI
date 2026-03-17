@@ -422,6 +422,9 @@ df_plot_rt_trimmed <- df_plot %>%
   filter(RT_sec >= rt_q_low, RT_sec <= rt_q_high) %>%
   select(-rt_q_low, -rt_q_high)
 
+# Use the same RT-trimmed trials for error-rate dots as well
+df_plot_err_trimmed <- df_plot_rt_trimmed
+
 # 2) Participant-level descriptive means per category (for dots)
 rt_participant_means <- df_plot_rt_trimmed %>%
   group_by(Participant_Private_ID, Sentence_Category) %>%
@@ -452,7 +455,7 @@ rt_emm_plot_df <- summary(
 # D. ERROR-PROBABILITY PANEL
 # ------------------------------------------------------------------------------
 # 1) Participant-level error rates per category (for dots)
-err_participant_rates <- df_plot %>%
+err_participant_rates <- df_plot_err_trimmed  %>%
   group_by(Participant_Private_ID, Sentence_Category) %>%
   summarise(
     participant_error_rate = mean(Error_Flag, na.rm = TRUE),
@@ -590,7 +593,7 @@ p_rt
 
 
 # 1) Participant-level error rates per category (for dots)
-err_participant_rates <- df_plot %>%
+err_participant_rates <- df_plot_err_trimmed  %>%
   group_by(Participant_Private_ID, Sentence_Category) %>%
   summarise(
     participant_error_rate = mean(Error_Flag, na.rm = TRUE),
