@@ -1,0 +1,67 @@
+item_id,condition,sentence_text,expected_plausibility
+1,AI,The presidential candidate is an intelligent program.,implausible
+2,Tool,The presidential candidate is an intelligent picture.,implausible
+3,Human,The presidential candidate is an intelligent teacher.,plausible
+4,AI,Living wages are deserved by all androids.,implausible
+5,Tool,Living wages are deserved by all tablets.,implausible
+6,Human,Living wages are deserved by all bakers.,plausible
+7,AI,Joe is looking to marry a nice bot.,implausible
+8,Tool,Joe is looking to marry a nice stove.,implausible
+9,Human,Joe is looking to marry a nice maid.,plausible
+10,AI,I am going to a funeral for my robot.,implausible
+11,Tool,I am going to a funeral for my hammer.,implausible
+12,Human,I am going to a funeral for my uncle.,plausible
+13,AI,We organized a birthday party for my drone.,implausible
+14,Tool,We organized a birthday party for my drill.,implausible
+15,Human,We organized a birthday party for my aunt.,plausible
+16,AI,She insulted the cyborg.,implausible
+17,Tool,She insulted the scooter.,implausible
+18,Human,She insulted the cashier.,plausible
+19,AI,Getting ready for the day is common for automatons.,implausible
+20,Tool,Getting ready for the day is common for synthesizers.,implausible
+21,Human,Getting ready for the day is common for zoologists.,plausible
+22,AI,When we yell at them we offend the robots.,implausible
+23,Tool,When we yell at them we offend the robots.,implausible
+24,Human,When we yell at them we offend the robots.,plausible
+25,AI,When they get hungry we feed the intelligent systems.,implausible
+26,Tool,When they get hungry we feed the soldering irons.,implausible
+27,Human,When they get hungry we feed the IT specialists.,plausible
+28,AI,When not talked to loneliness is felt by the AI.,implausible
+29,Tool,When not talked to loneliness is felt by the letter.,implausible
+30,Human,When not talked to loneliness is felt by the poet.,plausible
+31,AI,Curiosity is common in some algorithms.,implausible
+32,Tool,Curiosity is common in some calculators.,implausible
+33,Human,Curiosity is common in some librarians.,plausible
+34,AI,The man became a robot.,implausible
+35,Tool,The man became a bottle.,implausible
+36,Human,The man became an actor.,plausible
+37,AI,After they finish learning there is a graduation party for neural networks.,implausible
+38,Tool,After they finish learning there is a graduation party for wasching machines.,implausible
+39,Human,After they finish learning there is a graduation party for college students.,plausible
+40,AI,All should be allowed to be who they want to be including virtual assistants.,implausible
+41,Tool,All should be allowed to be who they want to be including electric guitars.,implausible
+42,Human,All should be allowed to be who they want to be including graphic designers.,plausible
+43,AI,When successful happiness is felt by the smart device.,implausible
+44,Tool,When successful happiness is felt by the tape measure.,implausible
+45,Human,When successful happiness is felt by the book editor.,plausible
+46,AI,We organized a birthday party for my AI.,implausible
+47,Tool,We organized a birthday party for my radio.,implausible
+48,Human,We organized a birthday party for my cousin.,plausible
+49,AI,Friends are important for the health of programs.,implausible
+50,Tool,Friends are important for the health of tables.,implausible
+51,Human,Friends are important for the health of students.,plausible
+52,AI,Some people exploit Google assistants.,implausible
+53,Tool,Some people exploit food processors.,implausible
+54,Human,Some people exploit social workers.,plausible
+55,AI,Literature is a popular subject to choose to study for algorithms.,implausible
+56,Tool,Literature is a popular subject to choose to study for directories.,implausible
+57,Human,Literature is a popular subject to choose to study for philosophers.,plausible
+58,AI,It is nice to greet an AI.,implausible
+59,Tool,It is nice to greet an engine.,implausible
+60,Human,It is nice to greet an artist.,plausible
+61,AI,Music is fun to listen to for androids.,implausible
+62,Tool,Music is fun to listen to for laptops.,implausible
+63,Human,Music is fun to listen to for singers.,plausible
+64,AI,Together I sip wine with my chatbot.,implausible
+65,Tool,Together I sip wine with my toolbox.,implausible
+66,Human,Together I sip wine with my nephew.,plausible
