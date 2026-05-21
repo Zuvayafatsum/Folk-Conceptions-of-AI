@@ -609,3 +609,26 @@ p_exploratory_violin <- p_rt_violin + p_err_violin
 
 p_exploratory_violin
 
+combined_figure <- (p_rt_violin + p_err_violin) &
+  theme(
+    plot.margin = margin(0, 0, 0, 0, unit = "pt")
+  )
+
+combined_figure <- combined_figure +
+  plot_annotation(
+    theme = theme(
+      plot.margin = margin(0, 0, 0, 0, unit = "pt")
+    )
+  )
+
+combined_figure
+
+ggsave(
+  filename = "RT_error_probability_figure.svg",
+  plot = combined_figure,
+  device = svglite::svglite,
+  width = 24,
+  height = 11,
+  units = "cm"
+)
+
