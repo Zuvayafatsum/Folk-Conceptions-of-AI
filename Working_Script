@@ -397,8 +397,8 @@ plot_order <- c("Human", "AI", "Tool")
 
 # Figure colors
 category_cols <- c(
-  "AI"    = "lightgrey",
-  "Human" = "#FFC4C4",
+  "AI"    = "#FFC4C4",
+  "Human" = "lightgrey",
   "Tool"  = "#BFD8FF"
 )
 
@@ -632,3 +632,107 @@ ggsave(
   units = "cm"
 )
 
+# ==============================================================================
+# 8. PARTICIPANT-LEVEL CORRELATION PLOTS FOR AI SENTENCES
+# CLEAN POSTER VERSION: NO PANEL TEXT, ONLY AXES
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# A. CREATE PARTICIPANT-LEVEL SUMMARY DATAFRAME (AI SENTENCES ONLY)
+# ------------------------------------------------------------------------------
+df_ai_person <- df_cov %>%
+  filter(Sentence_Category == "AI") %>%
+  group_by(Participant_Private_ID) %>%
+  summarise(
+    AI_Familiarity_Score = first(AI_Familiarity_Score),
+    AI_Knowledge_Score   = first(AI_Knowledge_Score)*100,
+    mean_ai_rt_ms        = mean(RT_sec, na.rm = TRUE) * 1000,
+    ai_error_rate_pct    = mean(Error_Flag, na.rm = TRUE) * 100,
+    n_ai_trials          = n(),
+    .groups = "drop"
+  )
+
+# ------------------------------------------------------------------------------
+# B. SHARED Y-AXIS LIMITS
+# ------------------------------------------------------------------------------
+# Shared across the two RT plots
+rt_range <- range(df_ai_person$mean_ai_rt_ms, na.rm = TRUE)
+rt_pad <- diff(rt_range) * 0.08
+if (rt_pad == 0) rt_pad <- 50
+rt_ylim <- c(rt_range[1] - rt_pad, rt_range[2] + rt_pad)
+
+# Shared across the two error-rate plots
+err_range <- range(df_ai_person$ai_error_rate_pct, na.rm = TRUE)
+err_pad <- diff(err_range) * 0.08
+if (err_pad == 0) err_pad <- 1
+err_ylim <- c(max(0, err_range[1] - err_pad), err_range[2] + err_pad)
+
+# ------------------------------------------------------------------------------
+# C. SHARED THEME
+# ------------------------------------------------------------------------------
+corr_theme <- theme_prism() +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(face = "bold"),
+    aspect.ratio = 1
+  )
+
+# ------------------------------------------------------------------------------
+# D. PLOT 1: AI FAMILIARITY vs MEAN AI RT
+# ------------------------------------------------------------------------------
+p_fam_rt <- ggplot(df_ai_person, aes(x = AI_Familiarity_Score, y = mean_ai_rt_ms)) +
+  geom_point(size = 2.4, alpha = 0.8) +
+  geom_smooth(method = "lm", formula = y ~ x, se = TRUE, linewidth = 0.9, color = "black") +
+  coord_cartesian(ylim = rt_ylim) +
+  labs(
+    x = "AI Familiarity Score",
+    y = "Mean RT for AI Sentences (ms)"
+  ) +
+  corr_theme
+
+# ------------------------------------------------------------------------------
+# E. PLOT 2: AI FAMILIARITY vs AI ERROR RATE
+# ------------------------------------------------------------------------------
+p_fam_err <- ggplot(df_ai_person, aes(x = AI_Familiarity_Score, y = ai_error_rate_pct)) +
+  geom_point(size = 2.4, alpha = 0.8) +
+  geom_smooth(method = "lm", formula = y ~ x, se = TRUE, linewidth = 0.9, color = "black") +
+  coord_cartesian(ylim = err_ylim) +
+  labs(
+    x = "AI Familiarity Score",
+    y = "Error Rate for AI Sentences (%)"
+  ) +
+  corr_theme
+
+# ------------------------------------------------------------------------------
+# F. PLOT 3: AI KNOWLEDGE vs MEAN AI RT
+# ------------------------------------------------------------------------------
+p_know_rt <- ggplot(df_ai_person, aes(x = AI_Knowledge_Score, y = mean_ai_rt_ms)) +
+  geom_point(size = 2.4, alpha = 0.8) +
+  geom_smooth(method = "lm", formula = y ~ x, se = TRUE, linewidth = 0.9, color = "black") +
+  coord_cartesian(ylim = rt_ylim) +
+  labs(
+    x = "AI Knowledge Score",
+    y = "Mean RT for AI Sentences (ms)"
+  ) +
+  corr_theme
+
+# ------------------------------------------------------------------------------
+# G. PLOT 4: AI KNOWLEDGE vs AI ERROR RATE
+# ------------------------------------------------------------------------------
+p_know_err <- ggplot(df_ai_person, aes(x = AI_Knowledge_Score, y = ai_error_rate_pct)) +
+  geom_point(size = 2.4, alpha = 0.8) +
+  geom_smooth(method = "lm", formula = y ~ x, se = TRUE, linewidth = 0.9, color = "black") +
+  coord_cartesian(ylim = err_ylim) +
+  labs(
+    x = "AI Knowledge Score",
+    y = "Error Rate for AI Sentences (%)"
+  ) +
+  corr_theme
+
+# ------------------------------------------------------------------------------
+# H. COMBINE INTO A 2 x 2 PANEL
+# ------------------------------------------------------------------------------
+correlation_panel <- (p_fam_rt + p_fam_err) / (p_know_rt + p_know_err)
+
+correlation_panel
