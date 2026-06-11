@@ -1,0 +1,88 @@
+Sentence,Word Target ,Syllables,Characters,AI / Tool / Person,NOW fpmw (2019-2023),COCA fpmw,NOW (Zipf),COCA (Zipf),Overall Band,Concreteness
+The presidential candidate is an intelligent,program,2,7,AI ,188.24,248.78,5.274711914,5.395815463,5,3.43
+The presidential candidate is an intelligent,picture,2,7,Tool,99.29,111.16,4.996905511,5.045948538,5,4.52
+The presidential candidate is an intelligent,teacher,2,7,Person,43.74,107.59,4.640878779,5.031771908,5,4.52
+,,,,,,,,,,
+Living wages are deserved by all,androids,2,8,AI ,35.09,13.95,4.545183368,4.144574208,4,4.22
+Living wages are deserved by all,tablets,2,7,Tool,10.39,10.24,4.016615548,4.010299957,4,4.82
+Living wages are deserved by all,bakers,2,6,Person,19.11,21.74,4.281260687,4.33725954,4,4.71
+,,,,,,,,,,
+Joe is looking to marry a nice ,bot,1,3,AI ,3.96,1.79,3.597695186,3.252853031,3,n/a
+Joe is looking to marry a nice,stove,1,5,Tool,3.28,9.29,3.515873844,3.968015714,3,4.96
+Joe is looking to marry a nice ,maid,1,4,Person,3.43,7.26,3.53529412,3.860936621,3,4.64
+,,,,,,,,,,
+I am going to a funeral for my,robot,2,5,AI ,11.57,12.32,4.063333359,4.090610708,4,4.65
+I am going to a funeral for my,hammer,2,6,Tool,8.33,12.44,3.920645001,4.09482038,4,4.77
+I am going to a funeral for my,uncle,2,5,Person,13.25,43.74,4.122215878,4.640878779,4,4.24
+,,,,,,,,,,
+We organized a birthday party for my,drone,1,5,AI ,15.34,7.77,4.18582536,3.890421019,4,3.93
+We organized a birthday party for my,drill,1,5,Tool,8.82,12.55,3.945468585,4.098643726,4,4.4
+We organized a birthday party for my,aunt,1,4,Person,7.09,27.87,3.850646235,4.445136969,4,4.17
+,,,,,,,,,,
+She insulted the,cyborg,2,6,AI ,0.77,1.09,2.886490725,3.037426498,3,3.88
+She insulted the,scooter,2,7,Tool,4.95,2.65,3.694605199,3.423245874,3,4.96
+She insulted the,cashier,2,7,Person,1.28,2.46,3.10720997,3.390935107,3,4.89
+,,,,,,,,,,
+Getting ready for the day is common for,automatons,4,10,AI ,0.12,0.46,2.079181246,2.662757832,2,3.46
+Getting ready for the day is common for,synthesizers,4,11,Tool,0.34,0.67,2.531478917,2.826074803,2,4.04
+Getting ready for the day is common for,zoologists,4,10,Person,0.15,0.33,2.176091259,2.51851394,2,4.3
+,,,,,,,,,,
+"When we yell at them, we offend the ",robot(s),2,6,AI ,11.57,12.32,4.063333359,4.090610708,4,4.65
+"When we yell at them, we offend the ",mirror(s),2,7,Tool,25.09,33.74,4.399500661,4.528145078,4,4.97
+"When we yell at them, we offend the",doctors,2,7,Person,56.25,57.24,4.750122527,4.757699625,4,4.69
+,,,,,,,,,,
+"When they get hungry, we feed the ",intelligent system(s),6,7,AI ,0.02,0.05,1.301029996,1.698970004,1,n/a
+"When they get hungry, we feed the",soldering irons,2,9,Tool,0.04,0.097,1.602059991,1.986771734,1,4.68
+"When they get hungry, we feed the ",IT specialists,2,8,Person,0.05,0.09,1.698970004,1.954242509,1,n/a
+,,,,,,,,,,
+"When not talked to, loneliness is felt by the",AI,2,2,AI ,76.54,72.75,4.883888458,4.861832998,4,3.42
+"When not talked to, loneliness is felt by the",letter,2,6,Tool,97.31,82.11,4.988157473,4.914396052,4,4.7
+"When not talked to, loneliness is felt by the ",poet,2,4,Person,7.21,14.76,3.857935265,4.169086357,4,4.36
+,,,,,,,,,,
+Curiosity is common in some ,algorithms,4,10,AI ,8.52,7.11,3.930439595,3.851869601,3,3.07
+Curiosity is common in some ,calculators,4,11,Tool,2.76,2.44,3.440909082,3.387389826,3,4.86
+Curiosity is common in some ,librarians,4,10,Person,1.46,5.8,3.164352856,3.763427994,3,4.4
+,,,,,,,,,,
+The man became a ,robot,2,5,AI ,11.57,12.32,4.063333359,4.090610708,4,4.65
+The man became a ,bottle,2,6,Tool,20.22,30.72,4.305781151,4.487421211,4,4.91
+The man became an ,actor,2,5,Person,76.13,33.47,4.88155583,4.524655712,4,4.57
+,,,,,,,,,,
+"After they finish learning, there is a graduation party for",neural network(s),4,14,AI ,3,0.42,3.477121255,2.62324929,3,3.45
+"After they finish learning, there is a graduation party for",washing machine(s),4,15,Tool,1.82,1.4,3.260071388,3.146128036,3,4.89
+"After they finish learning, there is a graduation party for ",college students,4,15,Person,3.48,9.11,3.541579244,3.959518377,3,4.67
+,,,,,,,,,,
+"All should be allowed to be who they want to be, including",virtual assistant(s),6,17,AI ,0.4,0.13,2.602059991,2.113943352,2,n/a
+"All should be allowed to be who they want to be, including",electric guitar(s),5,15,Tool,0.41,0.61,2.612783857,2.785329835,2,4.91
+"All should be allowed to be who they want to be, including",graphic designer(s),5,16,Person,0.74,0.69,2.86923172,2.838849091,2,3.7
+,,,,,,,,,,
+"When successful, happiness is felt by the",smart device,3,11,AI ,0.37,0.06,2.568201724,1.77815125,2,n/a
+"When successful, happiness is felt by the",tape measure,4,10,Tool,0.15,0.42,2.176091259,2.62324929,2,4.48
+"When successful, happiness is felt by the",book editor,4,10,Person,0.07,0.16,3.382017043,3.646403726,2,n/a
+,,,,,,,,,,
+We organized a birthday party for my,AI,2,2,AI ,76.54,72.75,4.883888458,4.861832998,4,3.42
+We organized a birthday party for my,radio,2,5,Tool,63.32,82.4,4.801540906,4.915927212,4,4.74
+We organized a birthday party for my,cousin,2,6,Person,10.18,22.25,4.007747778,4.347330015,4,3.7
+,,,,,,,,,,
+Friends are important for the health of ,programs,2,8,AI ,188.24,248.78,5.274711914,5.395815463,5,3.43
+Friends are important for the health of ,tables,2,6,Tool,80.74,217.88,4.907088745,5.338217367,5,4.89
+Friends are important for the health of ,student(s),2,8,Person,102.79,148.12,5.011950866,5.170613703,5,4.92
+,,,,,,,,,,
+Some people exploit ,Google assistant(s),5,15,AI ,2.22,0.67,3.346352974,2.826074803,3,n/a
+Some people exploit,food processors,4,14,Tool,0.71,2.78,2.851258349,3.444044796,3,4.89
+Some people exploit,social worker(s),4,13,Person,2.41,4.43,3.382017043,3.646403726,3,4.69
+,,,,,,,,,,
+Literature is a popular subject to choose to study for ,algorithms,4,10,AI ,8.52,7.11,3.930439595,3.851869601,3,3.07
+Literature is a popular subject to choose to study for,directories,4,11,Tool,0.33,1.21,2.51851394,3.08278537,3,4.25
+Literature is a popular subject to choose to study for,philosophers,4,12,Person,2.4,6.34,3.380211242,3.802089258,3,3.63
+,,,,,,,,,,
+It is nice to greet an,AI,2,2,AI ,76.54,72.75,4.883888458,4.861832998,4,3.42
+It is nice to greet an,engine,2,6,Tool,43.4,35.89,4.63748973,4.554973458,4,4.86
+It is nice to greet an,artist,2,6,Person,45.67,55.8,4.659631012,4.746634199,4,4.24
+,,,,,,,,,,
+Music is fun to listen to for,androids,2,8,AI ,17.79,2.25,4.250175948,3.352182518,4,4.22
+Music is fun to listen to for,laptop(s),2,7,Tool,20.26,12.29,4.306639441,4.089551883,4,4.96
+Music is fun to listen to for,singer(s),2,7,Person,40.82,22.71,4.610873,4.356217134,4,4.62
+,,,,,,,,,,
+"Together, I sip wine with my ",chatbot,2,7,AI ,2.7,0.05,3.431363764,1.698970004,3,n/a
+"Together, I sip wine with my",toolbox,2,7,Tool,1.14,1.32,3.056904851,3.120573931,3,4.75
+"Together, I sip wine with my",nephew,2,6,Person,5.87,7.1,3.768638101,3.851258349,3,4.48
