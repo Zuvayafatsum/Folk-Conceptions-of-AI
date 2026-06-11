@@ -634,7 +634,7 @@ ggsave(
 
 # ==============================================================================
 # 8. PARTICIPANT-LEVEL CORRELATION PLOTS FOR AI SENTENCES
-# CLEAN POSTER VERSION: NO PANEL TEXT, ONLY AXES
+# CLEAN POSTER VERSION WITH EXTREME RT OUTLIER EXCLUSION
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
@@ -645,7 +645,7 @@ df_ai_person <- df_cov %>%
   group_by(Participant_Private_ID) %>%
   summarise(
     AI_Familiarity_Score = first(AI_Familiarity_Score),
-    AI_Knowledge_Score   = first(AI_Knowledge_Score)*100,
+    AI_Knowledge_Score   = first(AI_Knowledge_Score) * 100,
     mean_ai_rt_ms        = mean(RT_sec, na.rm = TRUE) * 1000,
     ai_error_rate_pct    = mean(Error_Flag, na.rm = TRUE) * 100,
     n_ai_trials          = n(),
@@ -653,23 +653,128 @@ df_ai_person <- df_cov %>%
   )
 
 # ------------------------------------------------------------------------------
-# B. SHARED Y-AXIS LIMITS
+# B. INSPECT AND EXCLUDE EXTREME PARTICIPANT-LEVEL RT OUTLIERS
 # ------------------------------------------------------------------------------
+
+# Extreme outlier rule: values below Q1 - 3*IQR or above Q3 + 3*IQR
+rt_q1  <- quantile(df_ai_person$mean_ai_rt_ms, 0.25, na.rm = TRUE)
+rt_q3  <- quantile(df_ai_person$mean_ai_rt_ms, 0.75, na.rm = TRUE)
+rt_iqr <- IQR(df_ai_person$mean_ai_rt_ms, na.rm = TRUE)
+
+rt_lower_extreme <- rt_q1 - 3 * rt_iqr
+rt_upper_extreme <- rt_q3 + 3 * rt_iqr
+
+df_ai_person <- df_ai_person %>%
+  mutate(
+    extreme_rt_outlier = mean_ai_rt_ms < rt_lower_extreme |
+      mean_ai_rt_ms > rt_upper_extreme
+  )
+
+cat("\n============================\n")
+cat("PARTICIPANT-LEVEL AI RT OUTLIER INSPECTION\n")
+cat("============================\n")
+cat("Q1:", round(rt_q1, 2), "ms\n")
+cat("Q3:", round(rt_q3, 2), "ms\n")
+cat("IQR:", round(rt_iqr, 2), "ms\n")
+cat("Lower extreme bound:", round(rt_lower_extreme, 2), "ms\n")
+cat("Upper extreme bound:", round(rt_upper_extreme, 2), "ms\n")
+cat("Number of extreme RT outliers:",
+    sum(df_ai_person$extreme_rt_outlier, na.rm = TRUE), "\n")
+
+cat("\nExtreme RT outliers, if any:\n")
+print(
+  df_ai_person %>%
+    filter(extreme_rt_outlier) %>%
+    arrange(desc(mean_ai_rt_ms)) %>%
+    select(
+      Participant_Private_ID,
+      mean_ai_rt_ms,
+      ai_error_rate_pct,
+      AI_Familiarity_Score,
+      AI_Knowledge_Score,
+      n_ai_trials
+    )
+)
+
+# Cleaned dataframe used for correlations and plots
+df_ai_person_clean <- df_ai_person %>%
+  filter(!extreme_rt_outlier)
+
+cat("\nParticipants before exclusion:", nrow(df_ai_person), "\n")
+cat("Participants after exclusion:", nrow(df_ai_person_clean), "\n")
+
+# ------------------------------------------------------------------------------
+# C. OPTIONAL: RUN PEARSON CORRELATIONS ON CLEANED DATA
+# ------------------------------------------------------------------------------
+
+run_cor <- function(data, x, y, label) {
+  tmp <- data[, c(x, y)]
+  tmp <- tmp[complete.cases(tmp), ]
+  
+  test <- cor.test(tmp[[x]], tmp[[y]], method = "pearson")
+  
+  tibble(
+    comparison = label,
+    n = nrow(tmp),
+    r = unname(test$estimate),
+    ci_low = test$conf.int[1],
+    ci_high = test$conf.int[2],
+    p = test$p.value
+  )
+}
+
+cor_results_clean <- bind_rows(
+  run_cor(
+    df_ai_person_clean,
+    "AI_Familiarity_Score",
+    "mean_ai_rt_ms",
+    "AI familiarity vs mean AI RT"
+  ),
+  run_cor(
+    df_ai_person_clean,
+    "AI_Familiarity_Score",
+    "ai_error_rate_pct",
+    "AI familiarity vs AI error rate"
+  ),
+  run_cor(
+    df_ai_person_clean,
+    "AI_Knowledge_Score",
+    "mean_ai_rt_ms",
+    "AI knowledge vs mean AI RT"
+  ),
+  run_cor(
+    df_ai_person_clean,
+    "AI_Knowledge_Score",
+    "ai_error_rate_pct",
+    "AI knowledge vs AI error rate"
+  )
+)
+
+cat("\n============================\n")
+cat("CLEANED PARTICIPANT-LEVEL CORRELATIONS\n")
+cat("============================\n")
+print(cor_results_clean)
+
+# ------------------------------------------------------------------------------
+# D. SHARED Y-AXIS LIMITS BASED ON CLEANED DATA
+# ------------------------------------------------------------------------------
+
 # Shared across the two RT plots
-rt_range <- range(df_ai_person$mean_ai_rt_ms, na.rm = TRUE)
+rt_range <- range(df_ai_person_clean$mean_ai_rt_ms, na.rm = TRUE)
 rt_pad <- diff(rt_range) * 0.08
 if (rt_pad == 0) rt_pad <- 50
 rt_ylim <- c(rt_range[1] - rt_pad, rt_range[2] + rt_pad)
 
 # Shared across the two error-rate plots
-err_range <- range(df_ai_person$ai_error_rate_pct, na.rm = TRUE)
+err_range <- range(df_ai_person_clean$ai_error_rate_pct, na.rm = TRUE)
 err_pad <- diff(err_range) * 0.08
 if (err_pad == 0) err_pad <- 1
 err_ylim <- c(max(0, err_range[1] - err_pad), err_range[2] + err_pad)
 
 # ------------------------------------------------------------------------------
-# C. SHARED THEME
+# E. SHARED THEME
 # ------------------------------------------------------------------------------
+
 corr_theme <- theme_prism() +
   theme(
     legend.position = "none",
@@ -679,60 +784,884 @@ corr_theme <- theme_prism() +
   )
 
 # ------------------------------------------------------------------------------
-# D. PLOT 1: AI FAMILIARITY vs MEAN AI RT
+# F. PLOT 1: AI FAMILIARITY vs MEAN AI RT
 # ------------------------------------------------------------------------------
-p_fam_rt <- ggplot(df_ai_person, aes(x = AI_Familiarity_Score, y = mean_ai_rt_ms)) +
+
+p_fam_rt <- ggplot(
+  df_ai_person_clean,
+  aes(x = AI_Familiarity_Score, y = mean_ai_rt_ms)
+) +
   geom_point(size = 2.4, alpha = 0.8) +
-  geom_smooth(method = "lm", formula = y ~ x, se = TRUE, linewidth = 0.9, color = "black") +
+  geom_smooth(
+    method = "lm",
+    formula = y ~ x,
+    se = TRUE,
+    linewidth = 0.9,
+    color = "black"
+  ) +
   coord_cartesian(ylim = rt_ylim) +
   labs(
-    x = "AI Familiarity Score",
-    y = "Mean RT for AI Sentences (ms)"
+    x = "",
+    y = ""
   ) +
   corr_theme
 
+p_fam_rt
+
 # ------------------------------------------------------------------------------
-# E. PLOT 2: AI FAMILIARITY vs AI ERROR RATE
+# G. PLOT 2: AI FAMILIARITY vs AI ERROR RATE
 # ------------------------------------------------------------------------------
-p_fam_err <- ggplot(df_ai_person, aes(x = AI_Familiarity_Score, y = ai_error_rate_pct)) +
+
+p_fam_err <- ggplot(
+  df_ai_person_clean,
+  aes(x = AI_Familiarity_Score, y = ai_error_rate_pct)
+) +
   geom_point(size = 2.4, alpha = 0.8) +
-  geom_smooth(method = "lm", formula = y ~ x, se = TRUE, linewidth = 0.9, color = "black") +
+  geom_smooth(
+    method = "lm",
+    formula = y ~ x,
+    se = TRUE,
+    linewidth = 0.9,
+    color = "black"
+  ) +
   coord_cartesian(ylim = err_ylim) +
   labs(
-    x = "AI Familiarity Score",
-    y = "Error Rate for AI Sentences (%)"
+    x = "",
+    y = ""
   ) +
   corr_theme
 
 # ------------------------------------------------------------------------------
-# F. PLOT 3: AI KNOWLEDGE vs MEAN AI RT
+# H. PLOT 3: AI KNOWLEDGE vs MEAN AI RT
 # ------------------------------------------------------------------------------
-p_know_rt <- ggplot(df_ai_person, aes(x = AI_Knowledge_Score, y = mean_ai_rt_ms)) +
+
+p_know_rt <- ggplot(
+  df_ai_person_clean,
+  aes(x = AI_Knowledge_Score, y = mean_ai_rt_ms)
+) +
   geom_point(size = 2.4, alpha = 0.8) +
-  geom_smooth(method = "lm", formula = y ~ x, se = TRUE, linewidth = 0.9, color = "black") +
+  geom_smooth(
+    method = "lm",
+    formula = y ~ x,
+    se = TRUE,
+    linewidth = 0.9,
+    color = "black"
+  ) +
   coord_cartesian(ylim = rt_ylim) +
   labs(
-    x = "AI Knowledge Score",
-    y = "Mean RT for AI Sentences (ms)"
+    x = "",
+    y = ""
   ) +
   corr_theme
 
 # ------------------------------------------------------------------------------
-# G. PLOT 4: AI KNOWLEDGE vs AI ERROR RATE
+# I. PLOT 4: AI KNOWLEDGE vs AI ERROR RATE
 # ------------------------------------------------------------------------------
-p_know_err <- ggplot(df_ai_person, aes(x = AI_Knowledge_Score, y = ai_error_rate_pct)) +
+
+p_know_err <- ggplot(
+  df_ai_person_clean,
+  aes(x = AI_Knowledge_Score, y = ai_error_rate_pct)
+) +
   geom_point(size = 2.4, alpha = 0.8) +
-  geom_smooth(method = "lm", formula = y ~ x, se = TRUE, linewidth = 0.9, color = "black") +
+  geom_smooth(
+    method = "lm",
+    formula = y ~ x,
+    se = TRUE,
+    linewidth = 0.9,
+    color = "black"
+  ) +
   coord_cartesian(ylim = err_ylim) +
   labs(
-    x = "AI Knowledge Score",
-    y = "Error Rate for AI Sentences (%)"
+    x = "",
+    y = ""
   ) +
   corr_theme
 
 # ------------------------------------------------------------------------------
-# H. COMBINE INTO A 2 x 2 PANEL
+# J. COMBINE INTO A 2 x 2 PANEL
 # ------------------------------------------------------------------------------
+
 correlation_panel <- (p_fam_rt + p_fam_err) / (p_know_rt + p_know_err)
 
 correlation_panel
+
+ggsave(
+  filename = "correlation_panel_cleaned.svg",
+  plot = correlation_panel,
+  device = svglite::svglite
+)
+
+
+
+
+# ==============================================================================
+# 9. STIMULUS-LEVEL CORPUS CHECKS:
+# WORD FREQUENCY AND CONCRETENESS ACROSS SENTENCE CATEGORIES
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# A. LOAD CORPUS FILE
+# ------------------------------------------------------------------------------
+
+# This assumes "Corpus analysis.csv" is stored in the same folder as your main data.
+corpus_file_path <- file.path(dirname(file_path), "Corpus analysis.csv")
+
+corpus_raw <- read.csv(
+  corpus_file_path,
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+
+cat("\n============================\n")
+cat("CORPUS FILE LOADED\n")
+cat("============================\n")
+cat("Rows in raw corpus file:", nrow(corpus_raw), "\n")
+cat("Columns:\n")
+print(names(corpus_raw))
+
+# ------------------------------------------------------------------------------
+# B. CLEAN CORPUS DATA
+# ------------------------------------------------------------------------------
+
+# Clean column names by removing accidental leading/trailing spaces
+names(corpus_raw) <- trimws(names(corpus_raw))
+
+corpus_df <- corpus_raw %>%
+  filter(
+    !is.na(`AI / Tool / Person`),
+    str_squish(`AI / Tool / Person`) != ""
+  ) %>%
+  mutate(
+    # The file is organized as triplets: AI, Tool, Person/Human.
+    Stimulus_Set_ID = ceiling(row_number() / 3),
+    Stimulus_Set_ID = factor(Stimulus_Set_ID),
+    
+    Word_Category = str_squish(`AI / Tool / Person`),
+    Word_Category = recode(
+      Word_Category,
+      "Person" = "Human"
+    ),
+    Word_Category = factor(Word_Category, levels = c("Human", "AI", "Tool")),
+    
+    Target_Word = `Word Target`,
+    
+    NOW_Frequency_fpmw  = readr::parse_number(as.character(`NOW fpmw (2019-2023)`)),
+    COCA_Frequency_fpmw = readr::parse_number(as.character(`COCA fpmw`)),
+    NOW_Zipf            = readr::parse_number(as.character(`NOW (Zipf)`)),
+    COCA_Zipf           = readr::parse_number(as.character(`COCA (Zipf)`)),
+    Concreteness        = readr::parse_number(as.character(Concreteness))
+  )
+
+cat("\n============================\n")
+cat("CLEANED CORPUS DATA\n")
+cat("============================\n")
+cat("Rows retained:", nrow(corpus_df), "\n")
+cat("Stimulus sets retained:", n_distinct(corpus_df$Stimulus_Set_ID), "\n")
+cat("Category counts:\n")
+print(table(corpus_df$Word_Category, useNA = "ifany"))
+# ------------------------------------------------------------------------------
+# C. DESCRIPTIVE STATISTICS
+# ------------------------------------------------------------------------------
+
+corpus_descriptives <- corpus_df %>%
+  group_by(Word_Category) %>%
+  summarise(
+    n_words = n(),
+    
+    mean_NOW_Zipf = mean(NOW_Zipf, na.rm = TRUE),
+    sd_NOW_Zipf   = sd(NOW_Zipf, na.rm = TRUE),
+    
+    mean_COCA_Zipf = mean(COCA_Zipf, na.rm = TRUE),
+    sd_COCA_Zipf   = sd(COCA_Zipf, na.rm = TRUE),
+    
+    n_concreteness = sum(!is.na(Concreteness)),
+    mean_concreteness = mean(Concreteness, na.rm = TRUE),
+    sd_concreteness   = sd(Concreteness, na.rm = TRUE),
+    
+    .groups = "drop"
+  )
+
+cat("\n============================\n")
+cat("CORPUS DESCRIPTIVE STATISTICS\n")
+cat("============================\n")
+print(corpus_descriptives)
+
+# ------------------------------------------------------------------------------
+# D. WORD FREQUENCY ANALYSIS: NOW ZIPF
+# ------------------------------------------------------------------------------
+
+# Primary frequency analysis:
+# NOW Zipf is used because it is already log-scaled and based on recent language use.
+# Stimulus_Set_ID is included as a blocking factor because target words are organized
+# in matched AI/Tool/Human triplets.
+
+model_freq_now <- lm(
+  NOW_Zipf ~ Stimulus_Set_ID + Word_Category,
+  data = corpus_df
+)
+
+cat("\n============================\n")
+cat("WORD FREQUENCY ANALYSIS: NOW ZIPF\n")
+cat("============================\n")
+print(anova(model_freq_now))
+
+emm_freq_now <- emmeans(model_freq_now, ~ Word_Category)
+
+cat("\nEstimated marginal means: NOW Zipf\n")
+print(summary(emm_freq_now, infer = TRUE))
+
+cat("\nPairwise contrasts: NOW Zipf\n")
+print(pairs(emm_freq_now, adjust = "tukey"))
+
+# ------------------------------------------------------------------------------
+# E. WORD FREQUENCY ANALYSIS: COCA ZIPF
+# ------------------------------------------------------------------------------
+
+# Optional sensitivity analysis using COCA Zipf.
+
+model_freq_coca <- lm(
+  COCA_Zipf ~ Stimulus_Set_ID + Word_Category,
+  data = corpus_df
+)
+
+cat("\n============================\n")
+cat("WORD FREQUENCY ANALYSIS: COCA ZIPF\n")
+cat("============================\n")
+print(anova(model_freq_coca))
+
+emm_freq_coca <- emmeans(model_freq_coca, ~ Word_Category)
+
+cat("\nEstimated marginal means: COCA Zipf\n")
+print(summary(emm_freq_coca, infer = TRUE))
+
+cat("\nPairwise contrasts: COCA Zipf\n")
+print(pairs(emm_freq_coca, adjust = "tukey"))
+
+# ------------------------------------------------------------------------------
+# F. CONCRETENESS ANALYSIS
+# ------------------------------------------------------------------------------
+
+# Some target words may not have concreteness values.
+# Therefore, the concreteness model uses all available non-missing values.
+
+corpus_concreteness_df <- corpus_df %>%
+  filter(!is.na(Concreteness)) %>%
+  droplevels()
+
+cat("\n============================\n")
+cat("CONCRETENESS DATA AVAILABILITY\n")
+cat("============================\n")
+cat("Rows with concreteness values:", nrow(corpus_concreteness_df), "\n")
+cat("Rows missing concreteness values:", sum(is.na(corpus_df$Concreteness)), "\n")
+
+cat("\nMissing concreteness values, if any:\n")
+print(
+  corpus_df %>%
+    filter(is.na(Concreteness)) %>%
+    select(
+      Stimulus_Set_ID,
+      Word_Category,
+      Target_Word,
+      Sentence
+    )
+)
+
+model_concreteness <- lm(
+  Concreteness ~ Stimulus_Set_ID + Word_Category,
+  data = corpus_concreteness_df
+)
+
+cat("\n============================\n")
+cat("CONCRETENESS ANALYSIS\n")
+cat("============================\n")
+print(anova(model_concreteness))
+
+emm_concreteness <- emmeans(model_concreteness, ~ Word_Category)
+
+cat("\nEstimated marginal means: Concreteness\n")
+print(summary(emm_concreteness, infer = TRUE))
+
+cat("\nPairwise contrasts: Concreteness\n")
+print(pairs(emm_concreteness, adjust = "tukey"))
+
+
+
+
+# ==============================================================================
+# 10. LEXICAL CONTROL FIGURES:
+# NOW ZIPF FREQUENCY AND CONCRETENESS
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# A. SETTINGS
+# ------------------------------------------------------------------------------
+
+# Use same category order and colors as main behavioral figures.
+plot_order <- c("Human", "AI", "Tool")
+
+category_cols <- c(
+  "AI"    = "#FFC4C4",
+  "Human" = "lightgrey",
+  "Tool"  = "#BFD8FF"
+)
+
+# Shared theme
+lexical_theme <- theme_prism() +
+  theme(
+    legend.position = "none",
+    axis.title = element_text(face = "bold"),
+    axis.text = element_text(face = "bold"),
+    aspect.ratio = 1
+  )
+
+# Shared aesthetic parameters
+plot_jitter <- position_jitter(width = 0.07, height = 0, seed = 123)
+
+violin_width <- 0.75
+violin_alpha <- 0.4
+
+boxplot_width <- 0.12
+boxplot_alpha <- 0.60
+boxplot_linewidth <- 0.45
+
+
+emm_errorbar_width <- 0.055
+emm_errorbar_linewidth <- 0.90
+emm_point_size <- 2.8
+emm_point_stroke <- 0.90
+
+# ------------------------------------------------------------------------------
+# B. CREATE PLOTTING DATAFRAMES
+# ------------------------------------------------------------------------------
+
+# Full corpus dataframe for NOW Zipf plot
+corpus_df_plot <- corpus_df %>%
+  mutate(
+    Word_Category = factor(Word_Category, levels = plot_order)
+  )
+
+# Concreteness dataframe: only words with available concreteness norms
+corpus_concreteness_plot <- corpus_df %>%
+  filter(!is.na(Concreteness)) %>%
+  mutate(
+    Word_Category = factor(Word_Category, levels = plot_order)
+  ) %>%
+  droplevels()
+
+# ------------------------------------------------------------------------------
+# C. MODEL-BASED ESTIMATES FOR NOW ZIPF
+# ------------------------------------------------------------------------------
+
+emm_freq_now <- emmeans(model_freq_now, ~ Word_Category)
+
+now_emm_plot <- summary(
+  emm_freq_now,
+  infer = c(TRUE, FALSE)
+) %>%
+  as.data.frame() %>%
+  mutate(
+    Word_Category = factor(Word_Category, levels = plot_order)
+  )
+
+# ------------------------------------------------------------------------------
+# D. PLOT 1: NOW ZIPF FREQUENCY
+# ------------------------------------------------------------------------------
+
+p_now_zipf <- ggplot(
+  corpus_df_plot,
+  aes(x = Word_Category, y = NOW_Zipf)
+) +
+  # Distribution
+  geom_violin(
+    aes(fill = Word_Category),
+    width = violin_width,
+    alpha = violin_alpha,
+    color = NA,
+    trim = FALSE
+  ) +
+ 
+  # Boxplot summary
+  geom_boxplot(
+    aes(fill = Word_Category),
+    width = boxplot_width,
+    alpha = boxplot_alpha,
+    outlier.shape = NA,
+    color = "black",
+    linewidth = boxplot_linewidth
+  ) +
+  
+  # Model-estimated mean and 95% CI
+  geom_errorbar(
+    data = now_emm_plot,
+    aes(
+      x = Word_Category,
+      ymin = lower.CL,
+      ymax = upper.CL
+    ),
+    inherit.aes = FALSE,
+    width = emm_errorbar_width,
+    linewidth = emm_errorbar_linewidth,
+    color = "black"
+  ) +
+  geom_point(
+    data = now_emm_plot,
+    aes(
+      x = Word_Category,
+      y = emmean
+    ),
+    inherit.aes = FALSE,
+    shape = 21,
+    fill = "white",
+    color = "black",
+    size = emm_point_size,
+    stroke = emm_point_stroke
+  ) +
+  scale_fill_manual(values = category_cols) +
+  scale_color_manual(values = category_cols) +
+  scale_x_discrete(limits = plot_order) +
+  labs(
+    x = "Word Category",
+    y = "NOW Frequency (Zipf)"
+  ) +
+  lexical_theme
+
+p_now_zipf
+
+
+
+# ------------------------------------------------------------------------------
+# E. MODEL-BASED ESTIMATES FOR CONCRETENESS
+# ------------------------------------------------------------------------------
+
+emm_concreteness <- emmeans(model_concreteness, ~ Word_Category)
+
+concreteness_emm_plot <- summary(
+  emm_concreteness,
+  infer = c(TRUE, FALSE)
+) %>%
+  as.data.frame() %>%
+  mutate(
+    Word_Category = factor(Word_Category, levels = plot_order)
+  )
+
+# ------------------------------------------------------------------------------
+# F. PLOT 2: CONCRETENESS
+# ------------------------------------------------------------------------------
+
+p_concreteness <- ggplot(
+  corpus_concreteness_plot,
+  aes(x = Word_Category, y = Concreteness)
+) +
+  # Distribution
+  geom_violin(
+    aes(fill = Word_Category),
+    width = violin_width,
+    alpha = violin_alpha,
+    color = NA,
+    trim = FALSE
+  ) +
+  # Boxplot summary
+  geom_boxplot(
+    aes(fill = Word_Category),
+    width = boxplot_width,
+    alpha = boxplot_alpha,
+    outlier.shape = NA,
+    color = "black",
+    linewidth = boxplot_linewidth
+  ) +
+  # Model-estimated mean and 95% CI
+  geom_errorbar(
+    data = concreteness_emm_plot,
+    aes(
+      x = Word_Category,
+      ymin = lower.CL,
+      ymax = upper.CL
+    ),
+    inherit.aes = FALSE,
+    width = emm_errorbar_width,
+    linewidth = emm_errorbar_linewidth,
+    color = "black"
+  ) +
+  geom_point(
+    data = concreteness_emm_plot,
+    aes(
+      x = Word_Category,
+      y = emmean
+    ),
+    inherit.aes = FALSE,
+    shape = 21,
+    fill = "white",
+    color = "black",
+    size = emm_point_size,
+    stroke = emm_point_stroke
+  ) +
+  scale_fill_manual(values = category_cols) +
+  scale_color_manual(values = category_cols) +
+  scale_x_discrete(limits = plot_order) +
+  labs(
+    x = "Word Category",
+    y = "Concreteness"
+  ) +
+  coord_cartesian(ylim = c(2, 6)) +
+  lexical_theme
+
+p_concreteness
+
+# ------------------------------------------------------------------------------
+# G. COMBINE AND SAVE FIGURES
+# ------------------------------------------------------------------------------
+
+lexical_control_panel <- p_now_zipf + p_concreteness
+
+lexical_control_panel
+
+ggsave(
+  filename = file.path(dirname(file_path), "lexical_control_panel.svg"),
+  plot = lexical_control_panel,
+  device = svglite::svglite,
+  width = 18,
+  height = 9,
+  units = "cm"
+)
+
+
+
+# ==============================================================================
+# STANDALONE SENSITIVITY ANALYSIS:
+# COVARIATE MODELS WITH COMPLETE-TRIPLET CONCRETENESS CONTROL
+# ==============================================================================
+
+# ==============================================================================
+# 0. LOAD LIBRARIES
+# ==============================================================================
+
+library(tidyverse)
+library(lme4)
+library(emmeans)
+
+# ==============================================================================
+# 1. LOAD MAIN BEHAVIORAL DATA
+# ==============================================================================
+
+# Main behavioral data file
+file_path <- "//nas.ads.mwn.de/ra38lap/MWN-PC/Desktop/Folk_Conceptions_of_AI/Data_First_Experiment_Preprocessed/Folk_Conception_of_AI_Master_Task_Data_All_Included.csv"
+
+df_full_data <- read.csv(file_path, stringsAsFactors = FALSE)
+
+cat("\n============================\n")
+cat("MAIN BEHAVIORAL DATA LOADED\n")
+cat("============================\n")
+cat("Rows in full dataset:", nrow(df_full_data), "\n")
+cat("Participants in full dataset:", n_distinct(df_full_data$Participant_Private_ID), "\n")
+
+# ==============================================================================
+# 2. PREPROCESS MAIN DATA
+# ==============================================================================
+
+df_full_data <- df_full_data %>%
+  mutate(
+    Sentence_Category = factor(Sentence_Category),
+    Sentence_Category = relevel(Sentence_Category, ref = "Human"),
+    
+    # Convert RT from ms to seconds for Gamma GLMM
+    RT_sec = Reaction_Time / 1000,
+    
+    # Error flag: 1 = error, 0 = correct
+    Error_Flag = 1 - Is_Correct
+  )
+
+# ------------------------------------------------------------------------------
+# Exclude participants who failed both practice rounds
+# ------------------------------------------------------------------------------
+
+nrow_before <- nrow(df_full_data)
+
+df_cleaned <- df_full_data %>%
+  filter(Practice_Outcome != "Failed_Both") %>%
+  mutate(
+    # Sentence stem / stimulus-set ID from behavioral Sentence_ID
+    Stem_ID_num = ceiling(Sentence_ID / 3),
+    Stem_ID = factor(Stem_ID_num)
+  )
+
+nrow_after <- nrow(df_cleaned)
+rows_deleted <- nrow_before - nrow_after
+participants_excluded <- rows_deleted / 66
+
+cat("\n============================\n")
+cat("PRACTICE-FAILURE EXCLUSION REPORT\n")
+cat("============================\n")
+cat("Rows deleted:", rows_deleted, "\n")
+cat("Estimated participants excluded:", participants_excluded, "\n")
+cat("Rows retained:", nrow(df_cleaned), "\n")
+cat("Participants retained:", n_distinct(df_cleaned$Participant_Private_ID), "\n")
+
+# ------------------------------------------------------------------------------
+# Create covariate-analysis dataframe
+# ------------------------------------------------------------------------------
+
+df_cov <- df_cleaned %>%
+  mutate(
+    Participant_Private_ID = factor(Participant_Private_ID),
+    Stem_ID = factor(Stem_ID),
+    Sentence_Category = factor(Sentence_Category, levels = c("Human", "AI", "Tool")),
+    Gender = factor(Gender),
+    
+    Age_scaled = as.numeric(scale(Age)),
+    AI_Knowledge_scaled = as.numeric(scale(AI_Knowledge_Score)),
+    AI_Familiarity_scaled = as.numeric(scale(AI_Familiarity_Score))
+  ) %>%
+  drop_na(
+    Sentence_Category, RT_sec, Error_Flag, Age, Gender,
+    AI_Knowledge_Score, AI_Familiarity_Score,
+    Participant_Private_ID, Stem_ID, Stem_ID_num
+  )
+
+cat("\n============================\n")
+cat("ORIGINAL COVARIATE DATASET CREATED\n")
+cat("============================\n")
+cat("Rows retained:", nrow(df_cov), "\n")
+cat("Participants retained:", n_distinct(df_cov$Participant_Private_ID), "\n")
+cat("Stems retained:", n_distinct(df_cov$Stem_ID), "\n")
+cat("Category counts:\n")
+print(table(df_cov$Sentence_Category, useNA = "ifany"))
+
+# ==============================================================================
+# 3. LOAD AND CLEAN CORPUS FILE
+# ==============================================================================
+
+# This assumes "Corpus analysis.csv" is stored in the same folder as your main data.
+corpus_file_path <- file.path(dirname(file_path), "Corpus analysis.csv")
+
+corpus_raw <- read.csv(
+  corpus_file_path,
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+
+# Clean accidental leading/trailing spaces in column names
+names(corpus_raw) <- trimws(names(corpus_raw))
+
+cat("\n============================\n")
+cat("CORPUS FILE LOADED\n")
+cat("============================\n")
+cat("Rows in raw corpus file:", nrow(corpus_raw), "\n")
+cat("Columns:\n")
+print(names(corpus_raw))
+
+corpus_df <- corpus_raw %>%
+  filter(
+    !is.na(`AI / Tool / Person`),
+    str_squish(`AI / Tool / Person`) != ""
+  ) %>%
+  mutate(
+    # Assumes corpus file is ordered as matched triplets:
+    # rows 1-3 = stem 1, rows 4-6 = stem 2, etc.
+    Stimulus_Set_ID_num = ceiling(row_number() / 3),
+    Stimulus_Set_ID = factor(Stimulus_Set_ID_num),
+    
+    Word_Category = str_squish(`AI / Tool / Person`),
+    Word_Category = recode(
+      Word_Category,
+      "Person" = "Human"
+    ),
+    Word_Category = factor(Word_Category, levels = c("Human", "AI", "Tool")),
+    
+    Target_Word = `Word Target`,
+    
+    NOW_Frequency_fpmw  = readr::parse_number(as.character(`NOW fpmw (2019-2023)`)),
+    COCA_Frequency_fpmw = readr::parse_number(as.character(`COCA fpmw`)),
+    NOW_Zipf            = readr::parse_number(as.character(`NOW (Zipf)`)),
+    COCA_Zipf           = readr::parse_number(as.character(`COCA (Zipf)`)),
+    Concreteness        = readr::parse_number(as.character(Concreteness))
+  )
+
+cat("\n============================\n")
+cat("CLEANED CORPUS DATA\n")
+cat("============================\n")
+cat("Rows retained:", nrow(corpus_df), "\n")
+cat("Stimulus sets retained:", n_distinct(corpus_df$Stimulus_Set_ID_num), "\n")
+cat("Category counts:\n")
+print(table(corpus_df$Word_Category, useNA = "ifany"))
+
+# ==============================================================================
+# 4. IDENTIFY COMPLETE CONCRETENESS TRIPLETS
+# ==============================================================================
+
+complete_concreteness_sets <- corpus_df %>%
+  group_by(Stimulus_Set_ID_num) %>%
+  summarise(
+    n_rows = n(),
+    n_categories = n_distinct(Word_Category),
+    has_human = any(Word_Category == "Human"),
+    has_ai    = any(Word_Category == "AI"),
+    has_tool  = any(Word_Category == "Tool"),
+    n_nonmissing_concreteness = sum(!is.na(Concreteness)),
+    .groups = "drop"
+  ) %>%
+  filter(
+    n_rows == 3,
+    n_categories == 3,
+    has_human,
+    has_ai,
+    has_tool,
+    n_nonmissing_concreteness == 3
+  ) %>%
+  pull(Stimulus_Set_ID_num)
+
+corpus_complete_conc <- corpus_df %>%
+  filter(
+    Stimulus_Set_ID_num %in% complete_concreteness_sets,
+    !is.na(Concreteness)
+  ) %>%
+  mutate(
+    Stem_ID_num = Stimulus_Set_ID_num,
+    Sentence_Category = factor(Word_Category, levels = c("Human", "AI", "Tool")),
+    
+    # Scale concreteness at the item level before joining to participant-level trials.
+    Concreteness_scaled = as.numeric(scale(Concreteness))
+  ) %>%
+  select(
+    Stem_ID_num,
+    Sentence_Category,
+    Target_Word,
+    Concreteness,
+    Concreteness_scaled,
+    NOW_Zipf,
+    COCA_Zipf
+  )
+
+cat("\n============================\n")
+cat("COMPLETE-TRIPLET CONCRETENESS SETS\n")
+cat("============================\n")
+cat("Complete triplets retained:", length(complete_concreteness_sets), "\n")
+cat("Target words retained:", nrow(corpus_complete_conc), "\n")
+cat("Category counts in retained corpus items:\n")
+print(table(corpus_complete_conc$Sentence_Category, useNA = "ifany"))
+
+cat("\nIncomplete or excluded stimulus sets:\n")
+print(
+  corpus_df %>%
+    group_by(Stimulus_Set_ID_num) %>%
+    summarise(
+      n_rows = n(),
+      categories = paste(as.character(Word_Category), collapse = ", "),
+      missing_concreteness_words = paste(Target_Word[is.na(Concreteness)], collapse = "; "),
+      n_missing_concreteness = sum(is.na(Concreteness)),
+      .groups = "drop"
+    ) %>%
+    filter(!(Stimulus_Set_ID_num %in% complete_concreteness_sets))
+)
+
+# ==============================================================================
+# 5. JOIN CONCRETENESS TO MAIN BEHAVIORAL DATA
+# ==============================================================================
+
+df_conc_complete <- df_cov %>%
+  mutate(
+    Stem_ID_num = as.integer(Stem_ID_num),
+    Sentence_Category = factor(Sentence_Category, levels = c("Human", "AI", "Tool"))
+  ) %>%
+  inner_join(
+    corpus_complete_conc,
+    by = c("Stem_ID_num", "Sentence_Category")
+  ) %>%
+  mutate(
+    Stem_ID = factor(Stem_ID_num),
+    Sentence_Category = factor(Sentence_Category, levels = c("Human", "AI", "Tool")),
+    Participant_Private_ID = factor(Participant_Private_ID),
+    Gender = factor(Gender)
+  ) %>%
+  drop_na(
+    RT_sec, Error_Flag, Sentence_Category,
+    Age_scaled, Gender, AI_Knowledge_scaled, AI_Familiarity_scaled,
+    Concreteness, Concreteness_scaled,
+    Participant_Private_ID, Stem_ID
+  )
+
+cat("\n============================\n")
+cat("CONCRETENESS COMPLETE-TRIPLET BEHAVIORAL DATASET\n")
+cat("============================\n")
+cat("Rows retained:", nrow(df_conc_complete), "\n")
+cat("Participants retained:", n_distinct(df_conc_complete$Participant_Private_ID), "\n")
+cat("Stems retained:", n_distinct(df_conc_complete$Stem_ID), "\n")
+cat("Target words retained:", n_distinct(paste(df_conc_complete$Stem_ID, df_conc_complete$Sentence_Category)), "\n")
+cat("Category counts:\n")
+print(table(df_conc_complete$Sentence_Category, useNA = "ifany"))
+
+cat("\nConcreteness descriptives in retained items:\n")
+print(
+  corpus_complete_conc %>%
+    group_by(Sentence_Category) %>%
+    summarise(
+      n_items = n(),
+      mean_concreteness = mean(Concreteness, na.rm = TRUE),
+      sd_concreteness = sd(Concreteness, na.rm = TRUE),
+      .groups = "drop"
+    )
+)
+
+# ==============================================================================
+# 6. CONCRETENESS-ADJUSTED MODELS
+# Same models, now adding item-level concreteness as a fixed-effect covariate.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# A. RT concreteness-adjusted model
+# ------------------------------------------------------------------------------
+
+model_rt_concreteness <- glmer(
+  RT_sec ~ Sentence_Category + Concreteness_scaled +
+    Age_scaled + Gender + AI_Knowledge_scaled + AI_Familiarity_scaled +
+    (1 + Sentence_Category | Participant_Private_ID) +
+    (1 | Stem_ID),
+  data = df_conc_complete,
+  family = Gamma(link = "log"),
+  control = glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
+)
+
+cat("\n============================\n")
+cat("RT CONCRETENESS-ADJUSTED MODEL\n")
+cat("============================\n")
+print(summary(model_rt_concreteness))
+cat("\nSingular fit?", isSingular(model_rt_concreteness, tol = 1e-4), "\n")
+
+
+
+# # # ------------------------------------------------------------------------------
+# # # B. Concreteness-adjusted model EMMs
+# # # ------------------------------------------------------------------------------
+#
+emm_rt_concreteness <- emmeans(
+  model_rt_concreteness,
+  ~ Sentence_Category,
+  weights = "proportional"
+)
+
+
+
+cat("\n============================\n")
+cat("RT CONCRETENESS-ADJUSTED: EMMs ON RESPONSE SCALE\n")
+cat("============================\n")
+print(summary(emm_rt_concreteness, type = "response", infer = c(TRUE, TRUE)))
+
+
+cat("\n============================\n")
+cat("RT CONCRETENESS-ADJUSTED: AI VS TOOL CONTRAST\n")
+cat("============================\n")
+rt_concreteness_ai_vs_tool <- contrast(
+  emm_rt_concreteness,
+  method = list("AI vs Tool" = c(0, 1, -1))
+)
+print(summary(rt_concreteness_ai_vs_tool, type = "response", infer = c(TRUE, TRUE)))
+
+# ==============================================================================
+# 10. WALD 95% CIs FOR FIXED EFFECTS
+# ==============================================================================
+
+cat("\n============================\n")
+cat("RT CONCRETENESS-ADJUSTED: EXPONENTIATED FIXED EFFECTS + 95% WALD CIs\n")
+cat("============================\n")
+rt_concreteness_ci <- confint(model_rt_concreteness, parm = "beta_", method = "Wald")
+print(exp(cbind(Estimate = fixef(model_rt_concreteness), rt_concreteness_ci)))
+
