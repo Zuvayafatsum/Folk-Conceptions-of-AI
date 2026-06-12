@@ -1665,3 +1665,358 @@ cat("============================\n")
 rt_concreteness_ci <- confint(model_rt_concreteness, parm = "beta_", method = "Wald")
 print(exp(cbind(Estimate = fixef(model_rt_concreteness), rt_concreteness_ci)))
 
+
+
+
+# ==============================================================================
+# 0. SENTENCE LEVEL DESCRIPTIVE ANALYSIS FOR AI SENTENCES
+# ==============================================================================
+library(tidyverse)    # For data manipulation and piping
+library(lme4)         # For mixed-effects modeling
+library(emmeans)      # For estimated marginal means and post-hocs
+library(ggplot2)      # For data visualization
+library(ggprism)      # For scientific publication themes
+library(patchwork)    # For side-by-side plot alignment
+library(ggsignif)     # For drawing significance brackets
+
+# ==============================================================================
+# 1. LOAD DATA 
+# ==============================================================================
+# Update the path to where your file is located
+file_path <- "//nas.ads.mwn.de/ra38lap/MWN-PC/Desktop/Folk_Conceptions_of_AI/Data_First_Experiment_Preprocessed/Folk_Conception_of_AI_Master_Task_Data_All_Included.csv"
+df_full_data <- read.csv(file_path, stringsAsFactors = FALSE)
+
+# ==============================================================================
+# 2. PREPROCESSING: FACTORS, BASELINES, AND SCALING
+# ==============================================================================
+df_full_data <- df_full_data %>%
+  mutate(
+    # Set sentence category as a factor with Human as the baseline reference
+    Sentence_Category = as.factor(Sentence_Category),
+    Sentence_Category = relevel(Sentence_Category, ref = "Human"),
+    
+    # Convert RT from milliseconds to seconds (Highly recommended for Gamma GLMMs)
+    RT_sec = Reaction_Time / 1000,
+    
+    # Create explicit Error column (1 = Error, 0 = Correct) for binomial modeling
+    Error_Flag = 1 - Is_Correct 
+  )
+
+# ==============================================================================
+# 3. INITIAL DATA EXCLUSION: FAILED PRACTICE OUTCOMES
+# ==============================================================================
+nrow_before <- nrow(df_full_data)
+
+# Filter out participants who failed both practice rounds
+df_cleaned <- df_full_data %>%
+  filter(Practice_Outcome != "Failed_Both")
+
+# Create a unique ID (1 to 22) for the sentence stems based on Sentence_ID
+df_cleaned$Stem_ID = as.factor(ceiling(df_cleaned$Sentence_ID / 3))
+
+
+nrow_after <- nrow(df_cleaned)
+rows_deleted <- nrow_before - nrow_after
+participants_excluded <- rows_deleted / 66
+
+# Print exact exclusion statistics to the console for the manuscript
+cat("\n--- EXCLUSION REPORT (PRACTICE FAILURES) ---\n")
+cat("Total rows deleted: ", rows_deleted, "\n")
+cat("Total participants excluded: ", participants_excluded, "\n\n")
+
+
+
+# ==============================================================================
+# AI SENTENCE-LEVEL ERROR SUMMARY
+# Uses existing df_cleaned object
+# ==============================================================================
+
+library(dplyr)
+
+ai_sentence_error_summary <- df_cleaned %>%
+  filter(Sentence_Category == "AI") %>%
+  group_by(
+    Stem_ID,
+    Sentence_ID,
+    Sentence_Text
+  ) %>%
+  summarise(
+    n_trials = n(),
+    n_participants = n_distinct(Participant_Private_ID),
+    n_errors = sum(Error_Flag, na.rm = TRUE),
+    n_correct = sum(Error_Flag == 0, na.rm = TRUE),
+    
+    mean_error_probability = mean(Error_Flag, na.rm = TRUE),
+    se_error_probability = sd(Error_Flag, na.rm = TRUE) / sqrt(n()),
+    
+    mean_error_pct = mean_error_probability * 100,
+    se_error_pct = se_error_probability * 100,
+    
+    .groups = "drop"
+  ) %>%
+  arrange(desc(mean_error_probability))
+
+print(ai_sentence_error_summary, n = Inf)
+
+
+ai_sentence_error_summary_clean <- ai_sentence_error_summary %>%
+  mutate(
+    mean_error_probability = round(mean_error_probability, 3),
+    se_error_probability = round(se_error_probability, 3),
+    mean_error_pct = round(mean_error_pct, 1),
+    se_error_pct = round(se_error_pct, 1)
+  )
+
+print(ai_sentence_error_summary_clean, n = Inf)
+
+
+# ==============================================================================
+# BAR PLOT: AI SENTENCE-LEVEL MEAN ERROR PROBABILITY
+# WITH STEM ID ON X-AXIS
+# ==============================================================================
+library(dplyr)
+library(ggplot2)
+library(svglite)
+
+# Calculate overall Tool-trial mean error probability from cleaned data
+tool_mean_error_prob <- df_cleaned %>%
+  filter(Sentence_Category == "Tool") %>%
+  summarise(
+    mean_tool_error_prob = mean(Error_Flag, na.rm = TRUE)
+  ) %>%
+  pull(mean_tool_error_prob)
+
+cat("\nOverall Tool mean error probability:", round(tool_mean_error_prob, 3), "\n")
+
+# Order bars from highest to lowest error probability,
+# but keep the actual sentence stem number as the x-axis label.
+ai_plot_df <- ai_sentence_error_summary %>%
+  arrange(desc(mean_error_probability)) %>%
+  mutate(
+    Stem_ID_Label = paste0("S", Stem_ID),
+    Stem_ID_Label = factor(Stem_ID_Label, levels = Stem_ID_Label)
+  )
+
+# Create plot
+p_ai_error_bars <- ggplot(
+  ai_plot_df,
+  aes(x = Stem_ID_Label, y = mean_error_probability)
+) +
+  geom_col(
+    width = 0.75,
+    fill = "#FFC4C4",
+    color = "white",
+    linewidth = 0.4
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = mean_error_probability - se_error_probability,
+      ymax = mean_error_probability + se_error_probability
+    ),
+    width = 0.18,
+    linewidth = 0.5
+  ) +
+  geom_hline(
+    yintercept = tool_mean_error_prob,
+    linetype = "dashed",
+    linewidth = 0.6,
+    color = "black"
+  ) +
+  scale_y_continuous(
+    limits = c(0, 1),
+    expand = c(0, 0)
+  ) +
+  labs(
+    x = "",
+    y = ""
+  ) +
+  theme_classic() +
+  theme(
+    axis.title = element_text(face = "bold"),
+    axis.text.x = element_text(face = "bold", size = 7),
+    axis.text.y = element_text(face = "bold"),
+    axis.ticks.x = element_line(),
+    aspect.ratio = 0.5
+  )
+
+p_ai_error_bars
+
+# Save as SVG
+ggsave(
+  filename = "AI_sentence_error_barplot.svg",
+  plot = p_ai_error_bars,
+  device = svglite::svglite,
+  width = 18,
+  height = 9,
+  units = "cm"
+)
+
+
+# ==============================================================================
+# AI SENTENCE-LEVEL RT SUMMARY
+# Uses existing df_cleaned object
+# ==============================================================================
+
+ai_sentence_rt_summary <- df_cleaned %>%
+  filter(Sentence_Category == "AI") %>%
+  group_by(
+    Stem_ID,
+    Sentence_ID,
+    Sentence_Text
+  ) %>%
+  summarise(
+    n_trials = n(),
+    n_participants = n_distinct(Participant_Private_ID),
+    
+    mean_rt_ms = mean(Reaction_Time, na.rm = TRUE),
+    se_rt_ms = sd(Reaction_Time, na.rm = TRUE) / sqrt(n()),
+    
+    mean_rt_sec = mean(RT_sec, na.rm = TRUE),
+    se_rt_sec = sd(RT_sec, na.rm = TRUE) / sqrt(n()),
+    
+    .groups = "drop"
+  ) %>%
+  arrange(desc(mean_rt_ms))
+
+print(ai_sentence_rt_summary, n = Inf)
+
+
+ai_sentence_rt_summary_clean <- ai_sentence_rt_summary %>%
+  mutate(
+    mean_rt_ms = round(mean_rt_ms, 1),
+    se_rt_ms = round(se_rt_ms, 1),
+    mean_rt_sec = round(mean_rt_sec, 3),
+    se_rt_sec = round(se_rt_sec, 3)
+  )
+
+print(ai_sentence_rt_summary_clean, n = Inf)
+
+
+
+# ==============================================================================
+# BAR PLOT: AI SENTENCE-LEVEL MEAN RT
+# WITH STEM ID ON X-AXIS
+# ==============================================================================
+
+# ==============================================================================
+# BAR PLOT: AI SENTENCE-LEVEL MEAN RT
+# WITH STEM ID ON X-AXIS AND TOOL MEAN RT REFERENCE LINE
+# ==============================================================================
+
+# Calculate overall Tool-trial mean RT from cleaned data
+tool_mean_rt_ms <- df_cleaned %>%
+  filter(Sentence_Category == "Tool") %>%
+  summarise(
+    mean_tool_rt_ms = mean(Reaction_Time, na.rm = TRUE)
+  ) %>%
+  pull(mean_tool_rt_ms)
+
+cat("\nOverall Tool mean RT:", round(tool_mean_rt_ms, 2), "ms\n")
+
+# Order bars from slowest to fastest RT,
+# but keep the actual sentence stem number as the x-axis label.
+ai_rt_plot_df <- ai_sentence_rt_summary %>%
+  arrange(desc(mean_rt_ms)) %>%
+  mutate(
+    Stem_ID_Label = paste0("S", Stem_ID),
+    Stem_ID_Label = factor(Stem_ID_Label, levels = Stem_ID_Label)
+  )
+
+# Set y-axis limit so both AI bars and Tool reference line are visible
+rt_ymax <- max(
+  ai_rt_plot_df$mean_rt_ms + ai_rt_plot_df$se_rt_ms,
+  tool_mean_rt_ms,
+  na.rm = TRUE
+) * 1.05
+
+# Create plot
+p_ai_rt_bars <- ggplot(
+  ai_rt_plot_df,
+  aes(x = Stem_ID_Label, y = mean_rt_ms)
+) +
+  geom_col(
+    width = 0.75,
+    fill = "#FFC4C4",
+    color = "white",
+    linewidth = 0.4
+  ) +
+  geom_errorbar(
+    aes(
+      ymin = mean_rt_ms - se_rt_ms,
+      ymax = mean_rt_ms + se_rt_ms
+    ),
+    width = 0.18,
+    linewidth = 0.5
+  ) +
+  geom_hline(
+    yintercept = tool_mean_rt_ms,
+    linetype = "dashed",
+    linewidth = 0.6,
+    color = "black"
+  ) +
+  scale_y_continuous(
+    limits = c(0, rt_ymax),
+    expand = c(0, 0)
+  ) +
+  labs(
+    x = "",
+    y = ""
+  ) +
+  theme_classic() +
+  theme(
+    axis.title = element_text(face = "bold"),
+    axis.text.x = element_text(face = "bold", size = 7),
+    axis.text.y = element_text(face = "bold"),
+    axis.ticks.x = element_line(),
+    aspect.ratio = 0.5
+  )
+
+p_ai_rt_bars
+
+# Save as SVG
+ggsave(
+  filename = "AI_sentence_rt_barplot.svg",
+  plot = p_ai_rt_bars,
+  device = svglite::svglite,
+  width = 18,
+  height = 9,
+  units = "cm"
+)
+
+
+
+
+
+# ==============================================================================
+# CLEAN REPORT TABLES: ERROR PROBABILITY AND RT
+# ==============================================================================
+# ==============================================================================
+# CLEAN REPORT TABLES: ERROR PROBABILITY AND RT
+# ORDERED BY DESCENDING MEAN VALUES
+# ==============================================================================
+
+# Error probability table: highest error probability first
+ai_error_report_table <- ai_sentence_error_summary %>%
+  transmute(
+    Stem_ID = as.integer(as.character(Stem_ID)),
+    Sentence = Sentence_Text,
+    Mean_Error_Probability = round(mean_error_probability, 3),
+    SE_Error_Probability = round(se_error_probability, 3)
+  ) %>%
+  arrange(desc(Mean_Error_Probability))
+
+print(ai_error_report_table, n = Inf)
+
+
+# RT table: slowest RT first
+ai_rt_report_table <- ai_sentence_rt_summary %>%
+  transmute(
+    Stem_ID = as.integer(as.character(Stem_ID)),
+    Sentence = Sentence_Text,
+    Mean_RT_ms = round(mean_rt_ms, 1),
+    SE_RT_ms = round(se_rt_ms, 1)
+  ) %>%
+  arrange(desc(Mean_RT_ms))
+
+print(ai_rt_report_table, n = Inf)
+
