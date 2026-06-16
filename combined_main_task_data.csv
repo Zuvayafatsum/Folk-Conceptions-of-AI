@@ -1,0 +1,661 @@
+source_file,participant_id,age,gender,trial_order,trial_order_psychopy,item_id,condition,sentence,is_correct,reaction_time
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,1,0,33,Human,Curiosity is common in some librarians.,1,1.2035335000000489
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,2,1,25,AI,When they get hungry we feed the intelligent systems.,1,1.980111500000021
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,3,2,30,Human,When not talked to loneliness is felt by the poet.,1,1.1861877000001186
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,4,3,6,Human,Living wages are deserved by all bakers.,1,6.249187699999311
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,5,4,8,Tool,Joe is looking to marry a nice stove.,1,0.5393081000001985
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,6,5,50,Tool,Friends are important for the health of tables.,1,0.323651499999869
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,7,6,38,Tool,After they finish learning there is a graduation party for washing machines.,1,0.4953063999992082
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,8,7,24,Human,When we yell at them we offend the doctors.,1,0.6735057999994751
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,9,8,59,Tool,It is nice to greet an engine.,1,0.6103183999994144
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,10,9,14,Tool,We organized a birthday party for my drill.,1,0.548168600000281
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,11,10,57,Human,Literature is a popular subject to choose to study for philosophers.,1,0.4567254999992656
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,12,11,19,AI,Getting ready for the day is common for automatons.,1,2.457340699999804
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,13,12,53,Tool,Some people exploit food processors.,1,1.9253687999998872
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,14,13,43,AI,When successful happiness is felt by the smart device.,1,0.49721649999992223
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,15,14,20,Tool,Getting ready for the day is common for synthesizers.,1,0.45566989999952057
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,16,15,36,Human,The man became an actor.,1,0.4229433999998946
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,17,16,15,Human,We organized a birthday party for my aunt.,1,0.4493824000001041
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,18,17,31,AI,Curiosity is common in some algorithms.,1,0.415506600000299
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,19,18,49,AI,Friends are important for the health of programs.,1,0.4038453999992271
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,20,19,7,AI,Joe is looking to marry a nice bot.,1,0.4687736000005316
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,21,20,66,Human,Together I sip wine with my nephew.,1,0.4620863999998619
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,22,21,16,AI,She insulted the cyborg.,0,2.664213000000018
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,24,23,35,Tool,The man became a bottle.,1,0.5116758000003756
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,25,24,34,AI,The man became a robot.,1,5.716460099999495
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,26,25,12,Human,I am going to a funeral for my uncle.,1,0.39423790000000736
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,27,26,41,Tool,All should be allowed to be who they want to be including electric guitars.,1,0.5238411000000269
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,28,27,48,Human,We organized a birthday party for my cousin.,1,0.48523019999993267
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,29,28,54,Human,Some people exploit social workers.,1,0.6429576000000452
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,30,29,65,Tool,Together I sip wine with my toolbox.,1,0.4740103000003728
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,31,30,47,Tool,We organized a birthday party for my radio.,1,0.42767469999944296
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,32,31,39,Human,After they finish learning there is a graduation party for college students.,1,0.6817646000008608
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,33,32,13,AI,We organized a birthday party for my drone.,1,0.4128952000000936
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,34,33,21,Human,Getting ready for the day is common for zoologists.,1,0.5620355000000927
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,35,34,37,AI,After they finish learning there is a graduation party for neural networks.,1,0.4389237999994293
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,36,35,46,AI,We organized a birthday party for my AI.,1,0.4502972000000227
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,37,36,56,Tool,Literature is a popular subject to choose to study for directories.,1,1.135341100000005
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,38,37,23,Tool,When we yell at them we offend the mirrors.,1,0.5678565999996863
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,39,38,64,AI,Together I sip wine with my chatbot.,1,0.401759100000163
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,40,39,58,AI,It is nice to greet an AI.,0,2.919279099999585
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,41,40,32,Tool,Curiosity is common in some calculators.,1,0.3695090999999593
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,42,41,26,Tool,When they get hungry we feed the soldering irons.,1,1.8742394000000784
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,43,42,10,AI,I am going to a funeral for my robot.,1,0.5947784999998476
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,44,43,60,Human,It is nice to greet an artist.,1,0.36753609999959735
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,45,44,3,Human,The presidential candidate is an intelligent teacher.,1,0.35849140000027546
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,47,46,27,Human,When they get hungry we feed the IT specialists.,1,0.7300875000000815
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,48,47,18,Human,She insulted the cashier.,1,0.5067808000003424
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,49,48,63,Human,Music is fun to listen to for singers.,1,0.4468138000002
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,50,49,11,Tool,I am going to a funeral for my hammer.,1,0.38250479999987874
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,51,50,9,Human,Joe is looking to marry a nice maid.,1,0.6720556999998735
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,52,51,1,AI,The presidential candidate is an intelligent program.,1,0.41039720000026136
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,53,52,61,AI,Music is fun to listen to for androids.,1,2.1455464000000575
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,54,53,42,Human,All should be allowed to be who they want to be including graphic designers.,1,0.5752910999999585
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,55,54,51,Human,Friends are important for the health of students.,1,0.4001976999998078
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,56,55,29,Tool,When not talked to loneliness is felt by the letter.,1,0.49747320000005857
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,57,56,5,Tool,Living wages are deserved by all tablets.,1,0.36405199999990145
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,58,57,62,Tool,Music is fun to listen to for laptops.,1,0.3111613999999463
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,59,58,4,AI,Living wages are deserved by all androids.,1,0.5557641000004878
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,60,59,28,AI,When not talked to loneliness is felt by the AI.,1,0.5328988000001118
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,61,60,45,Human,When successful happiness is felt by the book editor.,0,1.1164499999995314
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,62,61,55,AI,Literature is a popular subject to choose to study for algorithms.,1,0.3542304000002332
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,63,62,40,AI,All should be allowed to be who they want to be including virtual assistants.,1,3.0878843999998935
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,64,63,52,AI,Some people exploit Google assistants.,0,1.1404113999997207
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,65,64,44,Tool,When successful happiness is felt by the tape measure.,1,0.7626941999997143
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,66,65,2,Tool,The presidential candidate is an intelligent picture.,1,0.4937604000006104
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,67,66,22,AI,When we yell at them we offend the robots.,1,9.765325999999732
+anna_01_2026-05-20_1559_RSVP_Plausibility.csv,anna,23,Female,68,67,17,Tool,She insulted the scooter.,1,0.4245339999997668
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,1,0,29,Tool,When not talked to loneliness is felt by the letter.,1,0.6909511999983806
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,2,1,1,AI,The presidential candidate is an intelligent program.,1,0.4623481999988144
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,3,2,13,AI,We organized a birthday party for my drone.,1,0.3966760000002978
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,4,3,15,Human,We organized a birthday party for my aunt.,1,0.2924293999967631
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,5,4,35,Tool,The man became a bottle.,1,0.29263450000144076
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,6,5,51,Human,Friends are important for the health of students.,1,0.3616035000013653
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,7,6,17,Tool,She insulted the scooter.,1,0.2699046999987331
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,8,7,31,AI,Curiosity is common in some algorithms.,1,0.2878556999967259
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,9,8,23,Tool,When we yell at them we offend the mirrors.,1,0.28677890000108164
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,10,9,4,AI,Living wages are deserved by all androids.,1,0.3160336000000825
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,11,10,38,Tool,After they finish learning there is a graduation party for washing machines.,1,0.4534266000009666
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,12,11,10,AI,I am going to a funeral for my robot.,1,0.675358899999992
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,13,12,16,AI,She insulted the cyborg.,1,0.3874238999997033
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,14,13,62,Tool,Music is fun to listen to for laptops.,1,0.2874874999979511
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,15,14,50,Tool,Friends are important for the health of tables.,1,0.3000241999980062
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,16,15,34,AI,The man became a robot.,1,1.790176500002417
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,17,16,21,Human,Getting ready for the day is common for zoologists.,1,0.282768599998235
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,18,17,7,AI,Joe is looking to marry a nice bot.,1,0.2966950000009092
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,19,18,42,Human,All should be allowed to be who they want to be including graphic designers.,1,0.29477219999898807
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,20,19,53,Tool,Some people exploit food processors.,1,0.27425579999908223
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,21,20,45,Human,When successful happiness is felt by the book editor.,1,0.31653039999946486
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,22,21,9,Human,Joe is looking to marry a nice maid.,1,0.2943676999966556
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,24,23,39,Human,After they finish learning there is a graduation party for college students.,1,0.4216183999997156
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,25,24,3,Human,The presidential candidate is an intelligent teacher.,1,0.6680992000001424
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,26,25,64,AI,Together I sip wine with my chatbot.,1,0.3834418000005826
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,27,26,54,Human,Some people exploit social workers.,1,0.30159079999793903
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,28,27,8,Tool,Joe is looking to marry a nice stove.,1,0.25866839999798685
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,29,28,22,AI,When we yell at them we offend the robots.,1,0.33143509999717935
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,30,29,27,Human,When they get hungry we feed the IT specialists.,1,0.2727567000001727
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,31,30,56,Tool,Literature is a popular subject to choose to study for directories.,1,1.16156829999818
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,32,31,19,AI,Getting ready for the day is common for automatons.,1,0.6544399000013073
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,33,32,12,Human,I am going to a funeral for my uncle.,1,0.2870175999996718
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,34,33,37,AI,After they finish learning there is a graduation party for neural networks.,1,0.31129390000205603
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,35,34,43,AI,When successful happiness is felt by the smart device.,1,0.2712008999988029
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,36,35,52,AI,Some people exploit Google assistants.,1,0.26870810000036727
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,37,36,41,Tool,All should be allowed to be who they want to be including electric guitars.,1,0.27223690000028
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,38,37,6,Human,Living wages are deserved by all bakers.,1,0.30365209999945364
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,39,38,57,Human,Literature is a popular subject to choose to study for philosophers.,1,0.275177799998346
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,40,39,49,AI,Friends are important for the health of programs.,1,0.3695932999980869
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,41,40,26,Tool,When they get hungry we feed the soldering irons.,1,0.27883490000021993
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,42,41,36,Human,The man became an actor.,1,0.4040512999999919
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,43,42,46,AI,We organized a birthday party for my AI.,1,0.2805536999985634
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,44,43,61,AI,Music is fun to listen to for androids.,1,0.27503280000019004
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,45,44,65,Tool,Together I sip wine with my toolbox.,1,0.28150969999842346
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,47,46,2,Tool,The presidential candidate is an intelligent picture.,1,0.2666793999997026
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,48,47,20,Tool,Getting ready for the day is common for synthesizers.,1,0.2417784000026586
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,49,48,5,Tool,Living wages are deserved by all tablets.,1,0.29583260000072187
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,50,49,25,AI,When they get hungry we feed the intelligent systems.,1,0.6325023000026704
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,51,50,63,Human,Music is fun to listen to for singers.,1,0.2804695000013453
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,52,51,44,Tool,When successful happiness is felt by the tape measure.,1,0.2936560999987705
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,53,52,55,AI,Literature is a popular subject to choose to study for algorithms.,1,0.3038758000002417
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,54,53,60,Human,It is nice to greet an artist.,1,0.2532973999987007
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,55,54,48,Human,We organized a birthday party for my cousin.,1,0.26837909999812837
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,56,55,30,Human,When not talked to loneliness is felt by the poet.,1,0.2881945999979507
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,57,56,32,Tool,Curiosity is common in some calculators.,1,0.2680210000035004
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,58,57,18,Human,She insulted the cashier.,1,0.250920499998756
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,59,58,28,AI,When not talked to loneliness is felt by the AI.,1,0.2581018999990192
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,60,59,59,Tool,It is nice to greet an engine.,1,0.2770574000023771
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,61,60,33,Human,Curiosity is common in some librarians.,1,0.2764545999998518
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,62,61,58,AI,It is nice to greet an AI.,1,0.2600692000014533
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,63,62,24,Human,When we yell at them we offend the doctors.,1,0.29959840000083204
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,64,63,66,Human,Together I sip wine with my nephew.,1,0.28113309999753255
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,65,64,14,Tool,We organized a birthday party for my drill.,1,0.30460300000049756
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,66,65,40,AI,All should be allowed to be who they want to be including virtual assistants.,1,0.26446979999673204
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,67,66,11,Tool,I am going to a funeral for my hammer.,1,0.274484500001563
+dan_01_2026-05-18_1518_RSVP_Plausibility.csv,dan,35,Male,68,67,47,Tool,We organized a birthday party for my radio.,1,0.27179220000107307
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,1,0,24,Human,When we yell at them we offend the doctors.,1,1.1125141000011354
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,2,1,28,AI,When not talked to loneliness is felt by the AI.,0,1.583577499999592
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,3,2,44,Tool,When successful happiness is felt by the tape measure.,1,5.372824399999445
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,4,3,19,AI,Getting ready for the day is common for automatons.,0,3.0024516000012227
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,5,4,58,AI,It is nice to greet an AI.,0,1.2176897000008466
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,6,5,38,Tool,After they finish learning there is a graduation party for washing machines.,0,2.89002470000014
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,7,6,35,Tool,The man became a bottle.,0,1.2507947000012791
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,8,7,4,AI,Living wages are deserved by all androids.,0,3.895126700001129
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,9,8,40,AI,All should be allowed to be who they want to be including virtual assistants.,0,1.5534017999998468
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,10,9,31,AI,Curiosity is common in some algorithms.,0,1.1886956999987888
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,11,10,49,AI,Friends are important for the health of programs.,0,1.5733692000012525
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,12,11,30,Human,When not talked to loneliness is felt by the poet.,1,2.393524900000557
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,13,12,8,Tool,Joe is looking to marry a nice stove.,1,3.146236200000203
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,14,13,16,AI,She insulted the cyborg.,0,2.086173100000451
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,15,14,51,Human,Friends are important for the health of students.,1,1.966006999999081
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,16,15,41,Tool,All should be allowed to be who they want to be including electric guitars.,1,2.155548299999282
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,17,16,62,Tool,Music is fun to listen to for laptops.,1,2.289978999999221
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,18,17,45,Human,When successful happiness is felt by the book editor.,1,2.657439100001284
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,19,18,61,AI,Music is fun to listen to for androids.,0,3.004959300000337
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,20,19,65,Tool,Together I sip wine with my toolbox.,1,1.6504308999992643
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,21,20,26,Tool,When they get hungry we feed the soldering irons.,1,1.6512464999996157
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,22,21,11,Tool,I am going to a funeral for my hammer.,1,2.2283657000007224
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,24,23,47,Tool,We organized a birthday party for my radio.,0,1.9599079999989044
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,25,24,13,AI,We organized a birthday party for my drone.,0,0.3594854999992094
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,26,25,56,Tool,Literature is a popular subject to choose to study for directories.,1,1.8172254000000976
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,27,26,46,AI,We organized a birthday party for my AI.,0,2.231031199999052
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,28,27,34,AI,The man became a robot.,0,1.107548100000713
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,29,28,23,Tool,When we yell at them we offend the mirrors.,0,0.873063999999431
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,30,29,6,Human,Living wages are deserved by all bakers.,1,0.325197100000878
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,31,30,43,AI,When successful happiness is felt by the smart device.,0,0.9712906000004295
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,32,31,50,Tool,Friends are important for the health of tables.,1,3.377995499999088
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,33,32,9,Human,Joe is looking to marry a nice maid.,1,0.4234991000012087
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,34,33,2,Tool,The presidential candidate is an intelligent picture.,0,7.151462100000572
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,35,34,21,Human,Getting ready for the day is common for zoologists.,1,0.29102120000061404
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,36,35,42,Human,All should be allowed to be who they want to be including graphic designers.,1,0.6479364999995596
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,37,36,27,Human,When they get hungry we feed the IT specialists.,1,0.4462851999996929
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,38,37,22,AI,When we yell at them we offend the robots.,0,0.4823956999989605
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,39,38,1,AI,The presidential candidate is an intelligent program.,0,1.024948599999334
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,40,39,10,AI,I am going to a funeral for my robot.,0,0.4606192000010197
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,41,40,29,Tool,When not talked to loneliness is felt by the letter.,1,1.71749649999947
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,42,41,52,AI,Some people exploit Google assistants.,0,1.3820885000004637
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,43,42,25,AI,When they get hungry we feed the intelligent systems.,0,1.019714499998372
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,44,43,37,AI,After they finish learning there is a graduation party for neural networks.,0,0.9806806999986292
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,45,44,63,Human,Music is fun to listen to for singers.,1,1.02519299999949
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,47,46,36,Human,The man became an actor.,1,1.0144617999994807
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,48,47,53,Tool,Some people exploit food processors.,0,0.2890086999996129
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,49,48,32,Tool,Curiosity is common in some calculators.,0,1.3949323999986518
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,50,49,7,AI,Joe is looking to marry a nice bot.,0,0.582927400000699
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,51,50,17,Tool,She insulted the scooter.,0,0.31987799999842537
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,52,51,59,Tool,It is nice to greet an engine.,0,0.46548230000007607
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,53,52,12,Human,I am going to a funeral for my uncle.,1,0.31402170000001206
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,54,53,15,Human,We organized a birthday party for my aunt.,1,0.6031751000009535
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,55,54,18,Human,She insulted the cashier.,1,0.3300032999995892
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,56,55,64,AI,Together I sip wine with my chatbot.,0,0.5928860999993049
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,57,56,5,Tool,Living wages are deserved by all tablets.,1,4.733421799999633
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,58,57,3,Human,The presidential candidate is an intelligent teacher.,1,0.6795914000012999
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,59,58,54,Human,Some people exploit social workers.,1,0.32128259999990405
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,60,59,39,Human,After they finish learning there is a graduation party for college students.,1,0.2895989999997255
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,61,60,48,Human,We organized a birthday party for my cousin.,1,0.30505749999974796
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,62,61,57,Human,Literature is a popular subject to choose to study for philosophers.,1,3.012703899999906
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,63,62,55,AI,Literature is a popular subject to choose to study for algorithms.,1,0.7179500999991433
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,64,63,33,Human,Curiosity is common in some librarians.,1,0.28548290000071574
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,65,64,66,Human,Together I sip wine with my nephew.,1,0.3637820999992982
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,66,65,20,Tool,Getting ready for the day is common for synthesizers.,1,3.314730000000054
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,67,66,14,Tool,We organized a birthday party for my drill.,0,0.2901614000002155
+david_01_2026-05-18_1341_RSVP_Plausibility.csv,david,39,Male,68,67,60,Human,It is nice to greet an artist.,1,0.296719199999643
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,1,0,18,Human,She insulted the cashier.,1,0.8919902999987244
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,2,1,38,Tool,After they finish learning there is a graduation party for washing machines.,1,1.265756800001327
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,3,2,66,Human,Together I sip wine with my nephew.,1,0.37401649999992514
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,4,3,15,Human,We organized a birthday party for my aunt.,1,0.44865070000014384
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,5,4,64,AI,Together I sip wine with my chatbot.,1,0.37235099999998056
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,6,5,40,AI,All should be allowed to be who they want to be including virtual assistants.,0,0.7916320000003907
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,7,6,41,Tool,All should be allowed to be who they want to be including electric guitars.,1,0.5537208000005194
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,8,7,59,Tool,It is nice to greet an engine.,1,0.93125019999934
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,9,8,23,Tool,When we yell at them we offend the mirrors.,0,0.7553942999984429
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,10,9,33,Human,Curiosity is common in some librarians.,1,0.656396100001075
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,11,10,49,AI,Friends are important for the health of programs.,1,0.4398110000001907
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,12,11,2,Tool,The presidential candidate is an intelligent picture.,1,0.4167558999997709
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,13,12,61,AI,Music is fun to listen to for androids.,1,0.5941856999997981
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,14,13,16,AI,She insulted the cyborg.,0,0.4238129999994271
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,15,14,55,AI,Literature is a popular subject to choose to study for algorithms.,0,0.8392433999997593
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,16,15,17,Tool,She insulted the scooter.,1,0.3966713999998319
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,17,16,4,AI,Living wages are deserved by all androids.,1,0.6269231000005675
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,18,17,32,Tool,Curiosity is common in some calculators.,1,0.3497680999989825
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,19,18,25,AI,When they get hungry we feed the intelligent systems.,1,1.4016986000006
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,20,19,1,AI,The presidential candidate is an intelligent program.,0,0.5747940000001108
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,21,20,62,Tool,Music is fun to listen to for laptops.,1,0.331004200001189
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,22,21,26,Tool,When they get hungry we feed the soldering irons.,1,0.9753020000007382
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,24,23,21,Human,Getting ready for the day is common for zoologists.,1,0.5367655000009108
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,25,24,12,Human,I am going to a funeral for my uncle.,1,0.33333289999973204
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,26,25,24,Human,When we yell at them we offend the doctors.,1,0.35764910000034433
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,27,26,45,Human,When successful happiness is felt by the book editor.,0,0.9755073999986053
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,28,27,37,AI,After they finish learning there is a graduation party for neural networks.,1,0.4906355999992229
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,29,28,48,Human,We organized a birthday party for my cousin.,1,0.43203469999934896
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,30,29,65,Tool,Together I sip wine with my toolbox.,1,0.3312750999994023
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,31,30,20,Tool,Getting ready for the day is common for synthesizers.,1,0.46141630000056466
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,32,31,50,Tool,Friends are important for the health of tables.,1,0.30685129999983474
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,33,32,35,Tool,The man became a bottle.,1,0.8345466000009765
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,34,33,5,Tool,Living wages are deserved by all tablets.,1,0.3298536000002059
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,35,34,14,Tool,We organized a birthday party for my drill.,1,0.31511700000010023
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,36,35,46,AI,We organized a birthday party for my AI.,1,0.571835499998997
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,37,36,10,AI,I am going to a funeral for my robot.,1,1.0583452000009856
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,38,37,11,Tool,I am going to a funeral for my hammer.,1,0.3756238000005396
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,39,38,60,Human,It is nice to greet an artist.,1,0.34557800000038696
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,40,39,34,AI,The man became a robot.,0,0.8252009000007092
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,41,40,9,Human,Joe is looking to marry a nice maid.,1,0.7343731000000844
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,42,41,28,AI,When not talked to loneliness is felt by the AI.,0,0.8558524000000034
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,43,42,42,Human,All should be allowed to be who they want to be including graphic designers.,1,0.3861170999989554
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,44,43,63,Human,Music is fun to listen to for singers.,1,0.5297180999987177
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,45,44,7,AI,Joe is looking to marry a nice bot.,1,0.3668950000010227
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,47,46,6,Human,Living wages are deserved by all bakers.,1,0.3596514000000752
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,48,47,30,Human,When not talked to loneliness is felt by the poet.,1,0.27393389999997453
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,49,48,57,Human,Literature is a popular subject to choose to study for philosophers.,1,0.4930610999999771
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,50,49,54,Human,Some people exploit social workers.,1,0.3320708999999624
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,51,50,39,Human,After they finish learning there is a graduation party for college students.,1,0.30466899999919406
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,52,51,22,AI,When we yell at them we offend the robots.,1,0.6548855000000913
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,53,52,52,AI,Some people exploit Google assistants.,0,0.9569872000010946
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,54,53,53,Tool,Some people exploit food processors.,1,0.8244503999994777
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,55,54,3,Human,The presidential candidate is an intelligent teacher.,1,0.743736499998704
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,56,55,13,AI,We organized a birthday party for my drone.,1,0.6763102000004437
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,57,56,44,Tool,When successful happiness is felt by the tape measure.,1,0.3209016000000702
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,58,57,47,Tool,We organized a birthday party for my radio.,1,0.3299721999992471
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,59,58,29,Tool,When not talked to loneliness is felt by the letter.,1,0.6331860000009328
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,60,59,51,Human,Friends are important for the health of students.,1,0.3630993999995553
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,61,60,36,Human,The man became an actor.,1,0.297913399999743
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,62,61,8,Tool,Joe is looking to marry a nice stove.,1,0.3526736999992863
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,63,62,43,AI,When successful happiness is felt by the smart device.,1,0.6102518000006967
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,64,63,31,AI,Curiosity is common in some algorithms.,0,0.2931276999988768
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,65,64,27,Human,When they get hungry we feed the IT specialists.,1,0.8136063000001741
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,66,65,58,AI,It is nice to greet an AI.,0,0.2808922000003804
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,67,66,19,AI,Getting ready for the day is common for automatons.,1,0.4087690000014846
+elif_01_2026-05-20_1746_RSVP_Plausibility.csv,elif,26,Female,68,67,56,Tool,Literature is a popular subject to choose to study for directories.,1,0.2913291000004392
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,1,0,42,Human,All should be allowed to be who they want to be including graphic designers.,1,1.8217018000004828
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,2,1,18,Human,She insulted the cashier.,1,2.2729724000000715
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,3,2,27,Human,When they get hungry we feed the IT specialists.,0,0.5314927999997963
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,4,3,64,AI,Together I sip wine with my chatbot.,1,0.871043500000269
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,5,4,61,AI,Music is fun to listen to for androids.,1,0.6189762000003611
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,6,5,19,AI,Getting ready for the day is common for automatons.,1,0.8786935999996786
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,7,6,59,Tool,It is nice to greet an engine.,0,0.6992027999995116
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,8,7,55,AI,Literature is a popular subject to choose to study for algorithms.,1,2.6230104000005667
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,9,8,31,AI,Curiosity is common in some algorithms.,0,1.9864409000001615
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,10,9,52,AI,Some people exploit Google assistants.,0,1.708508400000028
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,11,10,28,AI,When not talked to loneliness is felt by the AI.,1,0.7925667999998041
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,12,11,47,Tool,We organized a birthday party for my radio.,1,0.8284000999992713
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,13,12,54,Human,Some people exploit social workers.,1,1.2290547000002334
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,14,13,41,Tool,All should be allowed to be who they want to be including electric guitars.,0,5.658093699999881
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,15,14,57,Human,Literature is a popular subject to choose to study for philosophers.,1,0.9989597000003414
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,16,15,23,Tool,When we yell at them we offend the mirrors.,1,0.5359089000003223
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,17,16,62,Tool,Music is fun to listen to for laptops.,1,0.45087229999990086
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,18,17,49,AI,Friends are important for the health of programs.,1,2.150601100000131
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,19,18,65,Tool,Together I sip wine with my toolbox.,1,0.461734599999545
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,20,19,24,Human,When we yell at them we offend the doctors.,1,0.7081560000005993
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,21,20,4,AI,Living wages are deserved by all androids.,1,1.4213334000005489
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,22,21,66,Human,Together I sip wine with my nephew.,1,1.897831999999653
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,24,23,10,AI,I am going to a funeral for my robot.,0,2.8823771999996097
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,25,24,30,Human,When not talked to loneliness is felt by the poet.,1,0.6395950999994966
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,26,25,46,AI,We organized a birthday party for my AI.,1,0.6869825000003402
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,27,26,26,Tool,When they get hungry we feed the soldering irons.,1,0.6983652000008078
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,28,27,58,AI,It is nice to greet an AI.,0,1.855419499999698
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,29,28,38,Tool,After they finish learning there is a graduation party for washing machines.,1,0.47755509999933565
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,30,29,13,AI,We organized a birthday party for my drone.,1,0.5603082999996332
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,31,30,43,AI,When successful happiness is felt by the smart device.,1,0.3299003000001903
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,32,31,60,Human,It is nice to greet an artist.,1,0.6081932000006418
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,33,32,17,Tool,She insulted the scooter.,0,0.9957337999994706
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,34,33,51,Human,Friends are important for the health of students.,1,1.3132869999999457
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,35,34,16,AI,She insulted the cyborg.,0,0.9709751000000324
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,36,35,63,Human,Music is fun to listen to for singers.,1,0.38024640000003274
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,37,36,32,Tool,Curiosity is common in some calculators.,1,0.4227636999994502
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,38,37,11,Tool,I am going to a funeral for my hammer.,1,0.5460419000000911
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,39,38,8,Tool,Joe is looking to marry a nice stove.,1,0.5557352000005267
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,40,39,40,AI,All should be allowed to be who they want to be including virtual assistants.,1,0.6499193000008745
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,41,40,35,Tool,The man became a bottle.,1,0.5870108999997683
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,42,41,39,Human,After they finish learning there is a graduation party for college students.,1,0.4523250000002008
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,43,42,7,AI,Joe is looking to marry a nice bot.,1,3.847328100000595
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,44,43,44,Tool,When successful happiness is felt by the tape measure.,1,0.6673612999993566
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,45,44,45,Human,When successful happiness is felt by the book editor.,1,0.5007081999992806
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,47,46,22,AI,When we yell at them we offend the robots.,1,0.7019710999993549
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,48,47,3,Human,The presidential candidate is an intelligent teacher.,1,0.5934829999996509
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,49,48,29,Tool,When not talked to loneliness is felt by the letter.,1,0.9204767999999603
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,50,49,34,AI,The man became a robot.,1,3.9763413000000583
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,51,50,56,Tool,Literature is a popular subject to choose to study for directories.,1,1.0666702999997142
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,52,51,2,Tool,The presidential candidate is an intelligent picture.,1,0.6302179000003889
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,53,52,50,Tool,Friends are important for the health of tables.,1,0.7354017999996358
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,54,53,25,AI,When they get hungry we feed the intelligent systems.,1,0.4813013000002684
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,55,54,48,Human,We organized a birthday party for my cousin.,1,0.5354101000002629
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,56,55,21,Human,Getting ready for the day is common for zoologists.,1,0.4594541999995272
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,57,56,9,Human,Joe is looking to marry a nice maid.,1,0.6491584999994302
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,58,57,33,Human,Curiosity is common in some librarians.,1,0.5349981999997908
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,59,58,20,Tool,Getting ready for the day is common for synthesizers.,1,1.10991390000072
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,60,59,37,AI,After they finish learning there is a graduation party for neural networks.,1,0.2951911000000109
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,61,60,36,Human,The man became an actor.,1,0.3966397999993206
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,62,61,12,Human,I am going to a funeral for my uncle.,1,1.0622148000002198
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,63,62,53,Tool,Some people exploit food processors.,1,2.159559800000352
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,64,63,5,Tool,Living wages are deserved by all tablets.,1,0.12337879999995494
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,65,64,1,AI,The presidential candidate is an intelligent program.,1,1.0077900999995109
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,66,65,6,Human,Living wages are deserved by all bakers.,1,0.21727129999999303
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,67,66,15,Human,We organized a birthday party for my aunt.,1,0.2944611000002624
+giulia_01_2026-05-19_1528_RSVP_Plausibility.csv,giulia,24,Female,68,67,14,Tool,We organized a birthday party for my drill.,1,0.902280399999654
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,1,0,31,AI,Curiosity is common in some algorithms.,0,0.9480232000000796
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,2,1,4,AI,Living wages are deserved by all androids.,1,3.0463611999998648
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,3,2,8,Tool,Joe is looking to marry a nice stove.,1,0.6709200000000237
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,4,3,20,Tool,Getting ready for the day is common for synthesizers.,1,0.9468644999997196
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,5,4,27,Human,When they get hungry we feed the IT specialists.,0,0.24588740000035617
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,6,5,21,Human,Getting ready for the day is common for zoologists.,0,4.859688599999572
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,7,6,12,Human,I am going to a funeral for my uncle.,1,0.510952499999803
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,8,7,45,Human,When successful happiness is felt by the book editor.,0,0.49565050000001065
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,9,8,59,Tool,It is nice to greet an engine.,0,0.31678169999986494
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,10,9,57,Human,Literature is a popular subject to choose to study for philosophers.,1,0.8020667999999205
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,11,10,47,Tool,We organized a birthday party for my radio.,0,0.481316799999604
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,12,11,44,Tool,When successful happiness is felt by the tape measure.,1,0.8326735000000554
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,13,12,7,AI,Joe is looking to marry a nice bot.,0,0.6231468000000859
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,14,13,35,Tool,The man became a bottle.,0,0.8608377000000473
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,15,14,56,Tool,Literature is a popular subject to choose to study for directories.,0,1.3500957000001108
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,16,15,1,AI,The presidential candidate is an intelligent program.,0,0.29006470000012996
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,17,16,16,AI,She insulted the cyborg.,0,0.4919705000002068
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,18,17,66,Human,Together I sip wine with my nephew.,1,0.46177350000016304
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,19,18,52,AI,Some people exploit Google assistants.,0,0.47089660000028744
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,20,19,25,AI,When they get hungry we feed the intelligent systems.,1,0.35041169999976773
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,21,20,41,Tool,All should be allowed to be who they want to be including electric guitars.,1,0.3450388999999632
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,22,21,22,AI,When we yell at them we offend the robots.,0,0.39483910000035394
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,24,23,17,Tool,She insulted the scooter.,0,0.8794428000001062
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,25,24,38,Tool,After they finish learning there is a graduation party for wasching machines.,1,0.8186845999998695
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,26,25,58,AI,It is nice to greet an AI.,0,0.29686579999997775
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,27,26,37,AI,After they finish learning there is a graduation party for neural networks.,1,0.7529429000001073
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,28,27,26,Tool,When they get hungry we feed the soldering irons.,1,0.25565510000024005
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,29,28,5,Tool,Living wages are deserved by all tablets.,1,1.6563390000001164
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,30,29,36,Human,The man became an actor.,1,0.3933617000002414
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,31,30,63,Human,Music is fun to listen to for singers.,1,0.244478899999649
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,32,31,62,Tool,Music is fun to listen to for laptops.,1,0.2663250999999036
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,33,32,65,Tool,Together I sip wine with my toolbox.,1,0.2563353999998981
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,34,33,55,AI,Literature is a popular subject to choose to study for algorithms.,1,1.8918986000003315
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,35,34,49,AI,Friends are important for the health of programs.,0,1.4057741000001442
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,36,35,30,Human,When not talked to loneliness is felt by the poet.,1,1.6968464999999924
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,37,36,40,AI,All should be allowed to be who they want to be including virtual assistants.,1,0.2739584000000832
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,38,37,19,AI,Getting ready for the day is common for automatons.,1,0.270599299999958
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,39,38,11,Tool,I am going to a funeral for my hammer.,0,0.87388269999974
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,40,39,60,Human,It is nice to greet an artist.,1,0.5293566000000283
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,41,40,54,Human,Some people exploit social workers.,1,0.2628905000001396
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,42,41,18,Human,She insulted the cashier.,1,0.32333580000022266
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,43,42,9,Human,Joe is looking to marry a nice maid.,1,0.3033628999996836
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,44,43,61,AI,Music is fun to listen to for androids.,0,0.23079330000018672
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,45,44,15,Human,We organized a birthday party for my aunt.,1,0.4829838000000563
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,47,46,3,Human,The presidential candidate is an intelligent teacher.,1,0.9182071999998698
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,48,47,24,Human,When we yell at them we offend the doctors.,1,0.27761029999965103
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,49,48,32,Tool,Curiosity is common in some calculators.,1,0.5653638999997384
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,50,49,43,AI,When successful happiness is felt by the smart device.,1,0.23415509999995263
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,51,50,34,AI,The man became a robot.,0,1.223660099999961
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,52,51,53,Tool,Some people exploit food processors.,1,0.14278439999998227
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,53,52,23,Tool,When we yell at them we offend the mirrors.,0,0.4310429000001932
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,54,53,50,Tool,Friends are important for the health of tables.,1,0.6351245000000745
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,55,54,6,Human,Living wages are deserved by all bakers.,1,0.3010708000001614
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,56,55,2,Tool,The presidential candidate is an intelligent picture.,1,0.2405148999996527
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,57,56,48,Human,We organized a birthday party for my cousin.,1,0.34816619999992326
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,58,57,51,Human,Friends are important for the health of students.,1,0.2985303999998905
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,59,58,13,AI,We organized a birthday party for my drone.,0,0.21434809999982463
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,60,59,46,AI,We organized a birthday party for my AI.,0,0.2867565999999897
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,61,60,29,Tool,When not talked to loneliness is felt by the letter.,1,1.119640899999922
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,62,61,42,Human,All should be allowed to be who they want to be including graphic designers.,1,0.3289878000000499
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,63,62,28,AI,When not talked to loneliness is felt by the AI.,0,0.470627599999716
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,64,63,10,AI,I am going to a funeral for my robot.,0,0.3395111999998335
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,65,64,39,Human,After they finish learning there is a graduation party for college students.,1,0.23235380000005537
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,66,65,14,Tool,We organized a birthday party for my drill.,1,0.36604589999979
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,67,66,64,AI,Together I sip wine with my chatbot.,0,0.7013585999998213
+jaki_01_2026-05-12_1536_RSVP_Plausibility.csv,jaki,27,Male,68,67,33,Human,Curiosity is common in some librarians.,1,0.33932299999969473
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,1,0,26,Tool,When they get hungry we feed the soldering irons.,1,0.04441820000010921
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,2,1,53,Tool,Some people exploit food processors.,0,0.810635899999852
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,3,2,32,Tool,Curiosity is common in some calculators.,1,0.4394281999998384
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,4,3,38,Tool,After they finish learning there is a graduation party for wasching machines.,1,0.38706479999973453
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,5,4,44,Tool,When successful happiness is felt by the tape measure.,1,0.4533618000000388
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,6,5,16,AI,She insulted the cyborg.,0,0.356135600000016
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,7,6,24,Human,When we yell at them we offend the doctors.,1,0.4651460000000043
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,8,7,29,Tool,When not talked to loneliness is felt by the letter.,1,0.4320893999997679
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,9,8,36,Human,The man became an actor.,1,0.5263912999998865
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,10,9,19,AI,Getting ready for the day is common for automatons.,0,1.213829799999985
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,11,10,20,Tool,Getting ready for the day is common for synthesizers.,1,0.3178530000000137
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,12,11,21,Human,Getting ready for the day is common for zoologists.,1,0.3730896000001849
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,13,12,55,AI,Literature is a popular subject to choose to study for algorithms.,1,0.26990380000006553
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,14,13,47,Tool,We organized a birthday party for my radio.,1,0.2851086000000578
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,15,14,66,Human,Together I sip wine with my nephew.,1,0.3441594000000805
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,16,15,58,AI,It is nice to greet an AI.,0,0.5193578999997044
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,17,16,48,Human,We organized a birthday party for my cousin.,1,0.2256084999999075
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,18,17,49,AI,Friends are important for the health of programs.,1,0.2979464999998527
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,19,18,3,Human,The presidential candidate is an intelligent teacher.,1,0.4177251000000979
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,20,19,37,AI,After they finish learning there is a graduation party for neural networks.,1,0.24952110000003813
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,21,20,12,Human,I am going to a funeral for my uncle.,1,0.2699288999997407
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,22,21,27,Human,When they get hungry we feed the IT specialists.,1,0.2545663000000786
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,24,23,23,Tool,When we yell at them we offend the mirrors.,1,0.3821618000001763
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,25,24,39,Human,After they finish learning there is a graduation party for college students.,1,0.2908204000000296
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,26,25,59,Tool,It is nice to greet an engine.,1,0.5112711000001582
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,27,26,46,AI,We organized a birthday party for my AI.,1,0.34300359999997454
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,28,27,57,Human,Literature is a popular subject to choose to study for philosophers.,1,0.2687505999997484
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,29,28,17,Tool,She insulted the scooter.,1,0.3263364999997975
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,30,29,4,AI,Living wages are deserved by all androids.,0,0.566613800000141
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,31,30,40,AI,All should be allowed to be who they want to be including virtual assistants.,1,0.34680170000001453
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,32,31,61,AI,Music is fun to listen to for androids.,0,0.2948030999996263
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,33,32,6,Human,Living wages are deserved by all bakers.,1,0.2663262000000941
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,34,33,10,AI,I am going to a funeral for my robot.,0,0.7062003999999433
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,35,34,56,Tool,Literature is a popular subject to choose to study for directories.,1,0.30029960000001665
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,36,35,8,Tool,Joe is looking to marry a nice stove.,1,0.2389953000001697
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,37,36,14,Tool,We organized a birthday party for my drill.,1,0.26984760000004826
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,38,37,42,Human,All should be allowed to be who they want to be including graphic designers.,1,0.28544449999981225
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,39,38,60,Human,It is nice to greet an artist.,1,0.27869989999999234
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,40,39,50,Tool,Friends are important for the health of tables.,1,0.2830517000002146
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,41,40,33,Human,Curiosity is common in some librarians.,1,0.2927875000000313
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,42,41,25,AI,When they get hungry we feed the intelligent systems.,1,0.44997049999983574
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,43,42,35,Tool,The man became a bottle.,1,0.31638729999986026
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,44,43,65,Tool,Together I sip wine with my toolbox.,1,0.31149980000009236
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,45,44,15,Human,We organized a birthday party for my aunt.,1,0.35667499999999563
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,47,46,1,AI,The presidential candidate is an intelligent program.,1,0.5714066000000457
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,48,47,64,AI,Together I sip wine with my chatbot.,1,0.3165747999996711
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,49,48,41,Tool,All should be allowed to be who they want to be including electric guitars.,1,0.415617900000143
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,50,49,31,AI,Curiosity is common in some algorithms.,1,0.2629667999999583
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,51,50,9,Human,Joe is looking to marry a nice maid.,1,1.1254713999996966
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,52,51,18,Human,She insulted the cashier.,1,0.3132227999999486
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,53,52,62,Tool,Music is fun to listen to for laptops.,1,0.2662358000002314
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,54,53,30,Human,When not talked to loneliness is felt by the poet.,1,0.2899552000003496
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,55,54,34,AI,The man became a robot.,1,0.2995349000002534
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,56,55,11,Tool,I am going to a funeral for my hammer.,1,0.2704977999997027
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,57,56,63,Human,Music is fun to listen to for singers.,1,0.27376300000014453
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,58,57,7,AI,Joe is looking to marry a nice bot.,1,0.43307039999990593
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,59,58,43,AI,When successful happiness is felt by the smart device.,1,0.2556800000002113
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,60,59,13,AI,We organized a birthday party for my drone.,1,0.259622600000057
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,61,60,2,Tool,The presidential candidate is an intelligent picture.,1,0.24405109999997876
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,62,61,5,Tool,Living wages are deserved by all tablets.,1,0.22514229999978852
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,63,62,28,AI,When not talked to loneliness is felt by the AI.,1,0.26670469999999113
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,64,63,51,Human,Friends are important for the health of students.,1,0.2846460999999181
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,65,64,22,AI,When we yell at them we offend the robots.,0,0.7142836999996689
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,66,65,45,Human,When successful happiness is felt by the book editor.,1,0.26241380000010395
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,67,66,54,Human,Some people exploit social workers.,1,0.2820944000000054
+justin_01_2026-05-18_1119_RSVP_Plausibility.csv,justin,46,Male,68,67,52,AI,Some people exploit Google assistants.,0,0.9211285999999744
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,1,0,61,AI,Music is fun to listen to for androids.,1,2.7972383000014815
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,2,1,15,Human,We organized a birthday party for my aunt.,1,1.0783340999987558
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,3,2,5,Tool,Living wages are deserved by all tablets.,1,1.02921239999705
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,4,3,8,Tool,Joe is looking to marry a nice stove.,1,0.95853989999886835
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,5,4,3,Human,The presidential candidate is an intelligent teacher.,1,0.538815899999463
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,6,5,16,AI,She insulted the cyborg.,1,0.8493710000002466
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,7,6,64,AI,Together I sip wine with my chatbot.,1,1.0110732000030112
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,8,7,17,Tool,She insulted the scooter.,1,4.776944100001856
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,9,8,19,AI,Getting ready for the day is common for automatons.,1,0.6289335000001302
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,10,9,23,Tool,When we yell at them we offend the mirrors.,1,0.9507508000024244
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,11,10,45,Human,When successful happiness is felt by the book editor.,0,0.5594677000008232
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,12,11,60,Human,It is nice to greet an artist.,1,0.5660576999980549
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,13,12,65,Tool,Together I sip wine with my toolbox.,1,0.8758368999988306
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,14,13,46,AI,We organized a birthday party for my AI.,1,0.5160808000000543
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,15,14,13,AI,We organized a birthday party for my drone.,1,0.2939148000004934
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,16,15,10,AI,I am going to a funeral for my robot.,1,0.39028999999936786
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,17,16,58,AI,It is nice to greet an AI.,1,0.974034999999276
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,18,17,35,Tool,The man became a bottle.,1,0.3700216999968689
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,19,18,42,Human,All should be allowed to be who they want to be including graphic designers.,1,3.2477011999981187
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,20,19,50,Tool,Friends are important for the health of tables.,1,0.2656204000013531
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,21,20,9,Human,Joe is looking to marry a nice maid.,0,3.938708699999552
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,22,21,18,Human,She insulted the cashier.,1,2.365407099998265
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,24,23,22,AI,When we yell at them we offend the robots.,1,3.4078191999979026
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,25,24,4,AI,Living wages are deserved by all androids.,1,0.42907820000255015
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,26,25,49,AI,Friends are important for the health of programs.,0,3.213182499999675
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,27,26,48,Human,We organized a birthday party for my cousin.,1,0.27441449999969336
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,28,27,29,Tool,When not talked to loneliness is felt by the letter.,1,0.2895040999974299
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,29,28,56,Tool,Literature is a popular subject to choose to study for directories.,0,4.4843156000024464
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,30,29,25,AI,When they get hungry we feed the intelligent systems.,1,0.4026964999975462
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,31,30,39,Human,After they finish learning there is a graduation party for college students.,1,0.6067530000000261
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,32,31,55,AI,Literature is a popular subject to choose to study for algorithms.,1,1.2713767000022926
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,33,32,57,Human,Literature is a popular subject to choose to study for philosophers.,1,0.6025417000018933
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,34,33,33,Human,Curiosity is common in some librarians.,1,3.522940999999264
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,35,34,47,Tool,We organized a birthday party for my radio.,1,0.25614130000030855
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,36,35,52,AI,Some people exploit Google assistants.,1,0.32301870000083
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,37,36,30,Human,When not talked to loneliness is felt by the poet.,1,1.3102345000006608
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,38,37,24,Human,When we yell at them we offend the doctors.,1,0.21317849999832103
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,39,38,41,Tool,All should be allowed to be who they want to be including electric guitars.,1,0.28644180000264896
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,40,39,1,AI,The presidential candidate is an intelligent program.,1,0.3833545999987109
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,41,40,14,Tool,We organized a birthday party for my drill.,1,0.4115587000014784
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,42,41,21,Human,Getting ready for the day is common for zoologists.,0,0.4074432000015804
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,43,42,53,Tool,Some people exploit food processors.,1,1.3864558000022953
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,44,43,7,AI,Joe is looking to marry a nice bot.,1,0.2464012000018556
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,45,44,20,Tool,Getting ready for the day is common for synthesizers.,1,0.5673308000004909
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,47,46,44,Tool,When successful happiness is felt by the tape measure.,1,0.5763956000009784
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,48,47,59,Tool,It is nice to greet an engine.,1,1.210498299999017
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,49,48,28,AI,When not talked to loneliness is felt by the AI.,1,0.3147064999975555
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,50,49,31,AI,Curiosity is common in some algorithms.,1,0.5008331999997608
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,51,50,11,Tool,I am going to a funeral for my hammer.,1,0.5235386999993352
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,52,51,34,AI,The man became a robot.,1,0.5590497999983199
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,53,52,27,Human,When they get hungry we feed the IT specialists.,0,1.1498613000003388
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,54,53,32,Tool,Curiosity is common in some calculators.,1,0.2651592999973218
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,55,54,2,Tool,The presidential candidate is an intelligent picture.,1,0.2734697999985656
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,56,55,66,Human,Together I sip wine with my nephew.,1,0.5003741000000446
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,57,56,43,AI,When successful happiness is felt by the smart device.,1,0.3461993999990227
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,58,57,62,Tool,Music is fun to listen to for laptops.,1,0.3706038999989687
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,59,58,63,Human,Music is fun to listen to for singers.,1,0.45377730000109295
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,60,59,54,Human,Some people exploit social workers.,0,2.351589400001103
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,61,60,12,Human,I am going to a funeral for my uncle.,1,0.4574161999989883
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,62,61,36,Human,The man became an actor.,0,0.26453029999902355
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,63,62,37,AI,After they finish learning there is a graduation party for neural networks.,1,0.286897099998896
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,64,63,6,Human,Living wages are deserved by all bakers.,0,2.531290800001443
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,65,64,26,Tool,When they get hungry we feed the soldering irons.,1,0.3682074999996985
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,66,65,51,Human,Friends are important for the health of students.,1,0.36684130000139703
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,67,66,38,Tool,After they finish learning there is a graduation party for wasching machines.,1,0.414582800000062
+omer_01_2026-05-15_1119_RSVP_Plausibility.csv,omer,28,Male,68,67,40,AI,All should be allowed to be who they want to be including virtual assistants.,1,0.3073431000011624
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,1,0,8,Tool,Joe is looking to marry a nice stove.,1,0.7128439000007347
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,2,1,60,Human,It is nice to greet an artist.,1,0.5886099999988801
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,3,2,13,AI,We organized a birthday party for my drone.,1,1.7333022999955574
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,4,3,48,Human,We organized a birthday party for my cousin.,1,0.9107826999970712
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,5,4,17,Tool,She insulted the scooter.,1,0.5744874000010896
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,6,5,28,AI,When not talked to loneliness is felt by the AI.,1,0.7255837000047904
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,7,6,47,Tool,We organized a birthday party for my radio.,1,0.6895097000015085
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,8,7,63,Human,Music is fun to listen to for singers.,1,1.3499608999991324
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,9,8,44,Tool,When successful happiness is felt by the tape measure.,1,0.6187212000004365
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,10,9,12,Human,I am going to a funeral for my uncle.,1,1.669255399996473
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,11,10,25,AI,When they get hungry we feed the intelligent systems.,1,0.6060196000034921
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,12,11,65,Tool,Together I sip wine with my toolbox.,1,0.7249800999998115
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,13,12,61,AI,Music is fun to listen to for androids.,1,0.5668479000014486
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,14,13,38,Tool,After they finish learning there is a graduation party for wasching machines.,1,0.5780691999971168
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,15,14,31,AI,Curiosity is common in some algorithms.,0,1.00328029999946
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,16,15,19,AI,Getting ready for the day is common for automatons.,1,0.68339730000298
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,17,16,4,AI,Living wages are deserved by all androids.,1,0.5751254999995581
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,18,17,49,AI,Friends are important for the health of programs.,1,0.5350328000058653
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,19,18,45,Human,When successful happiness is felt by the book editor.,0,1.4802513000031468
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,20,19,30,Human,When not talked to loneliness is felt by the poet.,1,1.154165700005251
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,21,20,56,Tool,Literature is a popular subject to choose to study for directories.,1,0.4892452999993111
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,22,21,11,Tool,I am going to a funeral for my hammer.,1,0.7297094999958063
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,24,23,39,Human,After they finish learning there is a graduation party for college students.,1,0.49580179999611573
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,25,24,29,Tool,When not talked to loneliness is felt by the letter.,0,1.4732313999993494
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,26,25,7,AI,Joe is looking to marry a nice bot.,1,0.9395111999983784
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,27,26,6,Human,Living wages are deserved by all bakers.,1,0.994831999996677
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,28,27,57,Human,Literature is a popular subject to choose to study for philosophers.,1,0.8814045000035549
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,29,28,32,Tool,Curiosity is common in some calculators.,1,0.8151600000055623
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,30,29,37,AI,After they finish learning there is a graduation party for neural networks.,1,0.5492738999964786
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,31,30,23,Tool,When we yell at them we offend the mirrors.,1,0.7941183000002638
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,32,31,50,Tool,Friends are important for the health of tables.,1,0.8875660999983666
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,33,32,27,Human,When they get hungry we feed the IT specialists.,1,2.914703599999484
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,34,33,42,Human,All should be allowed to be who they want to be including graphic designers.,0,0.6945418000032078
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,35,34,52,AI,Some people exploit Google assistants.,0,0.719836900003429
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,36,35,55,AI,Literature is a popular subject to choose to study for algorithms.,1,0.6092464000030304
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,37,36,20,Tool,Getting ready for the day is common for synthesizers.,1,0.5706895999974222
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,38,37,5,Tool,Living wages are deserved by all tablets.,1,0.5883233999993536
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,39,38,9,Human,Joe is looking to marry a nice maid.,1,0.7053400000004331
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,40,39,34,AI,The man became a robot.,0,2.115677499998128
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,41,40,36,Human,The man became an actor.,1,1.019401099998504
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,42,41,41,Tool,All should be allowed to be who they want to be including electric guitars.,1,0.3521160000018426
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,43,42,62,Tool,Music is fun to listen to for laptops.,1,1.0480001000032644
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,44,43,40,AI,All should be allowed to be who they want to be including virtual assistants.,1,4.038134700000228
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,45,44,59,Tool,It is nice to greet an engine.,0,2.036950399997295
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,47,46,33,Human,Curiosity is common in some librarians.,1,0.7100755999999819
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,48,47,54,Human,Some people exploit social workers.,1,0.6551644999999553
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,49,48,14,Tool,We organized a birthday party for my drill.,1,0.47109890000137966
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,50,49,22,AI,When we yell at them we offend the robots.,1,1.8795682999989367
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,51,50,3,Human,The presidential candidate is an intelligent teacher.,1,0.33881359999941196
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,52,51,35,Tool,The man became a bottle.,1,0.33170830000017304
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,53,52,2,Tool,The presidential candidate is an intelligent picture.,1,0.517534099999466
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,54,53,51,Human,Friends are important for the health of students.,1,0.5003589000043576
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,55,54,16,AI,She insulted the cyborg.,1,2.766314799999236
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,56,55,66,Human,Together I sip wine with my nephew.,1,1.1695447999954922
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,57,56,1,AI,The presidential candidate is an intelligent program.,1,0.6676532999990741
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,58,57,53,Tool,Some people exploit food processors.,1,0.2736790999988443
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,59,58,26,Tool,When they get hungry we feed the soldering irons.,1,1.2336004999961006
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,60,59,46,AI,We organized a birthday party for my AI.,1,0.6259338000018033
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,61,60,58,AI,It is nice to greet an AI.,0,1.0701464000012493
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,62,61,15,Human,We organized a birthday party for my aunt.,1,0.8745896999971592
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,63,62,24,Human,When we yell at them we offend the doctors.,1,0.29110010000295006
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,64,63,18,Human,She insulted the cashier.,1,0.29515810000157217
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,65,64,21,Human,Getting ready for the day is common for zoologists.,1,0.4320748999962234
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,66,65,43,AI,When successful happiness is felt by the smart device.,1,0.26879919999919366
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,67,66,10,AI,I am going to a funeral for my robot.,1,0.48884849999740254
+sinem_01_2026-05-15_1351_RSVP_Plausibility.csv,sinem,25,Female,68,67,64,AI,Together I sip wine with my chatbot.,1,0.2917186999984551
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,1,0,47,Tool,We organized a birthday party for my radio.,1,0.6344884000000093
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,2,1,66,Human,Together I sip wine with my nephew.,1,0.3722266999999988
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,3,2,30,Human,When not talked to loneliness is felt by the poet.,1,3.279044400000032
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,4,3,65,Tool,Together I sip wine with my toolbox.,1,0.25744600000001583
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,5,4,11,Tool,I am going to a funeral for my hammer.,1,0.2478292000000124
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,6,5,38,Tool,After they finish learning there is a graduation party for washing machines.,1,0.24952120000000377
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,7,6,62,Tool,Music is fun to listen to for laptops.,1,0.755535400000042
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,8,7,55,AI,Literature is a popular subject to choose to study for algorithms.,1,0.4968290999999567
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,9,8,59,Tool,It is nice to greet an engine.,1,0.9615168000000268
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,10,9,21,Human,Getting ready for the day is common for zoologists.,1,0.4375018000000068
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,11,10,32,Tool,Curiosity is common in some calculators.,1,0.30169709999995575
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,12,11,36,Human,The man became an actor.,1,0.4029737000000182
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,13,12,4,AI,Living wages are deserved by all androids.,1,0.30765229999997246
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,14,13,42,Human,All should be allowed to be who they want to be including graphic designers.,1,0.24020769999998492
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,15,14,35,Tool,The man became a bottle.,1,0.4245680000000221
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,16,15,64,AI,Together I sip wine with my chatbot.,1,1.3820244000000343
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,17,16,2,Tool,The presidential candidate is an intelligent picture.,1,0.9793271000000344
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,18,17,33,Human,Curiosity is common in some librarians.,1,0.3558438000000024
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,19,18,41,Tool,All should be allowed to be who they want to be including electric guitars.,1,0.28929440000001705
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,20,19,31,AI,Curiosity is common in some algorithms.,0,6.906304999999975
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,21,20,60,Human,It is nice to greet an artist.,1,0.35533060000000205
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,22,21,44,Tool,When successful happiness is felt by the tape measure.,1,0.28431280000000925
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,24,23,13,AI,We organized a birthday party for my drone.,1,0.7207177000000229
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,25,24,8,Tool,Joe is looking to marry a nice stove.,1,0.24961600000000317
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,26,25,25,AI,When they get hungry we feed the intelligent systems.,1,0.32556030000000646
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,27,26,15,Human,We organized a birthday party for my aunt.,1,0.2514289000000076
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,28,27,1,AI,The presidential candidate is an intelligent program.,0,0.7051536999999826
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,29,28,16,AI,She insulted the cyborg.,0,1.31678050000005
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,30,29,14,Tool,We organized a birthday party for my drill.,1,0.30810380000002624
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,31,30,57,Human,Literature is a popular subject to choose to study for philosophers.,1,0.407035599999972
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,32,31,63,Human,Music is fun to listen to for singers.,1,0.2699618999999984
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,33,32,23,Tool,When we yell at them we offend the mirrors.,1,0.29121969999994235
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,34,33,34,AI,The man became a robot.,1,1.446288099999947
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,35,34,17,Tool,She insulted the scooter.,0,2.0325165999998944
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,36,35,48,Human,We organized a birthday party for my cousin.,1,0.8549477999999908
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,37,36,20,Tool,Getting ready for the day is common for synthesizers.,1,0.26366329999996196
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,38,37,49,AI,Friends are important for the health of programs.,1,1.167526799999905
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,39,38,40,AI,All should be allowed to be who they want to be including virtual assistants.,1,0.25474500000007083
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,40,39,22,AI,When we yell at them we offend the robots.,1,0.6110662999999477
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,41,40,54,Human,Some people exploit social workers.,1,0.9734650999999984
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,42,41,45,Human,When successful happiness is felt by the book editor.,1,0.5534068999999135
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,43,42,5,Tool,Living wages are deserved by all tablets.,1,0.26019780000001447
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,44,43,12,Human,I am going to a funeral for my uncle.,1,0.25492580000002363
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,45,44,19,AI,Getting ready for the day is common for automatons.,1,2.8026009999999815
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,47,46,61,AI,Music is fun to listen to for androids.,1,0.6717366000000311
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,48,47,10,AI,I am going to a funeral for my robot.,1,0.27719730000001164
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,49,48,51,Human,Friends are important for the health of students.,1,0.21464300000002368
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,50,49,29,Tool,When not talked to loneliness is felt by the letter.,1,0.5378576000000521
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,51,50,3,Human,The presidential candidate is an intelligent teacher.,1,0.5529755000000023
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,52,51,28,AI,When not talked to loneliness is felt by the AI.,1,0.9531566000000566
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,53,52,53,Tool,Some people exploit food processors.,1,0.27478819999998905
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,54,53,26,Tool,When they get hungry we feed the soldering irons.,1,0.3145355000000336
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,55,54,7,AI,Joe is looking to marry a nice bot.,1,0.3365949000000228
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,56,55,39,Human,After they finish learning there is a graduation party for college students.,1,0.2177722999999787
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,57,56,56,Tool,Literature is a popular subject to choose to study for directories.,1,0.3633078000000296
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,58,57,6,Human,Living wages are deserved by all bakers.,1,0.25423560000001544
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,59,58,24,Human,When we yell at them we offend the doctors.,1,0.5803283000000192
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,60,59,18,Human,She insulted the cashier.,1,0.3324773000000505
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,61,60,52,AI,Some people exploit Google assistants.,0,1.0708400000000893
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,62,61,43,AI,When successful happiness is felt by the smart device.,1,0.40702779999992345
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,63,62,37,AI,After they finish learning there is a graduation party for neural networks.,1,0.32572189999996226
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,64,63,27,Human,When they get hungry we feed the IT specialists.,1,0.4085192999999663
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,65,64,46,AI,We organized a birthday party for my AI.,1,0.3584743000000117
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,66,65,58,AI,It is nice to greet an AI.,0,2.194210099999964
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,67,66,50,Tool,Friends are important for the health of tables.,1,2.1994959999999537
+teo_01_2026-05-19_1340_RSVP_Plausibility.csv,teo,33,Male,68,67,9,Human,Joe is looking to marry a nice maid.,1,0.2596709000000601
