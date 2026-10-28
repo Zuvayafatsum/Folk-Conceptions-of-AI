@@ -1179,7 +1179,7 @@ p_now_zipf <- ggplot(
     color = NA,
     trim = FALSE
   ) +
- 
+  
   # Boxplot summary
   geom_boxplot(
     aes(fill = Word_Category),
@@ -2019,4 +2019,325 @@ ai_rt_report_table <- ai_sentence_rt_summary %>%
   arrange(desc(Mean_RT_ms))
 
 print(ai_rt_report_table, n = Inf)
+# ==============================================================================
+# APPENDIX: SIMR POWER FOR THE ORIGINAL STUDY -- AI VERSUS TOOL
+# Append this entire file to Working_Script, or source it after loading that script.
+# No existing data frames or fitted models are overwritten.
+#
+# DESIGN: original 66 sentences, with 22 AI + 22 Tool trials analysed per person.
+# Human trials are omitted from both primary models, as in the original script.
+# This is NOT a simulation of the new 180-sentence / 60-trial-per-person design.
+#
+# MODELS: original primary specifications, without exploratory covariates/items:
+#   RT:    Gamma GLMM, log link, RT in seconds; correct AND incorrect responses.
+#   Error: Bernoulli GLMM, logit link, 1 = error, 0 = correct.
+#   Both:  participant random intercept + correlated AI-versus-Tool random slope.
+#
+# TEST: two-sided Wald z-test of AI versus Tool, matching the original GLMM output.
+# POWER: conditional on fitted effect sizes and variance/dispersion estimates.
+# The original-N result is a plug-in estimate, not independent evidence about
+# whether the completed study was adequately powered. Pilot effects are uncertain.
+#
+# Install once if necessary: install.packages(c("lme4", "simr"))
+# API reference: https://cran.r-project.org/web/packages/simr/refman/simr.html
+# ==============================================================================
 
+# --- USER SETTINGS -------------------------------------------------------------
+pa_nsim <- 100L                 # Screening only; use >= 1000 for final estimates.
+pa_N_grid <- seq(50L, 300L, by = 25L)  # ANALYSABLE participants, not recruitment N.
+pa_alpha <- 0.05                # Per-outcome alpha; no multiplicity adjustment.
+pa_effect_multiplier <- 1.00    # 1 = fitted effect; e.g. 0.75 = smaller log effect.
+pa_seed <- 20261028L
+pa_output_parent <- getwd()     # Each invocation creates a separate result folder.
+pa_model_rds <- NULL            # Optional: reuse fitted_original_models.rds from a prior run.
+# Example: pa_model_rds <- "C:/previous_result_folder/fitted_original_models.rds"
+
+# The script normally reads df_full_data from your original script. To run this
+# appendix on its own, provide the CSV path below instead:
+pa_csv_path <- NULL
+# pa_csv_path <- "C:/your_folder/Folk_Conception_of_AI_Master_Task_Data_All_Included.csv"
+
+
+pa_run_power <- function(raw, N_grid, nsim, alpha, effect_multiplier,
+                         seed, output_parent, model_rds = NULL) {
+  needed <- c("lme4", "simr")
+  missing_pkgs <- needed[!vapply(needed, requireNamespace, logical(1), quietly = TRUE)]
+  if (length(missing_pkgs)) {
+    stop("Install these packages first: ", paste(missing_pkgs, collapse = ", "))
+  }
+  stopifnot(
+    is.data.frame(raw), length(nsim) == 1L, is.finite(nsim),
+    nsim >= 2, nsim == floor(nsim),
+    length(alpha) == 1L, is.finite(alpha), alpha > 0, alpha < 1,
+    length(effect_multiplier) == 1L, is.finite(effect_multiplier),
+    effect_multiplier > 0,
+    length(seed) == 1L, is.finite(seed), seed >= 0,
+    seed == floor(seed), seed < .Machine$integer.max - 100000L,
+    length(N_grid) > 0L, all(is.finite(N_grid)),
+    all(N_grid >= 10), all(N_grid == floor(N_grid))
+  )
+  
+  required_cols <- c("Participant_Private_ID", "Sentence_ID", "Sentence_Category",
+                     "Practice_Outcome", "Reaction_Time", "Is_Correct")
+  if (!all(required_cols %in% names(raw))) {
+    stop("Missing columns: ", paste(setdiff(required_cols, names(raw)), collapse = ", "))
+  }
+  raw <- as.data.frame(raw)
+  raw$Participant_Private_ID <- trimws(as.character(raw$Participant_Private_ID))
+  raw$Practice_Outcome <- trimws(as.character(raw$Practice_Outcome))
+  raw$Sentence_Category <- trimws(as.character(raw$Sentence_Category))
+  if (anyNA(raw$Participant_Private_ID) || any(raw$Participant_Private_ID == "") ||
+      anyNA(raw$Practice_Outcome) ||
+      !all(raw$Practice_Outcome %in%
+           c("Passed_Immediate", "Passed_Second_Try", "Failed_Both"))) {
+    stop("Missing participant IDs or missing/unrecognised practice outcomes.")
+  }
+  if (anyNA(raw$Sentence_Category) ||
+      !all(raw$Sentence_Category %in% c("AI", "Tool", "Human"))) {
+    stop("Missing or unrecognised sentence categories.")
+  }
+  
+  # Exclude the entire participant if ANY row marks them as Failed_Both.
+  # Passed_Second_Try participants remain included.
+  failed_ids <- unique(raw$Participant_Private_ID[raw$Practice_Outcome == "Failed_Both"])
+  dat <- raw[!raw$Participant_Private_ID %in% failed_ids &
+               raw$Sentence_Category %in% c("AI", "Tool"), required_cols, drop = FALSE]
+  dat$RT_sec <- suppressWarnings(as.numeric(as.character(dat$Reaction_Time))) / 1000
+  correct <- suppressWarnings(as.numeric(as.character(dat$Is_Correct)))
+  if (!nrow(dat) || any(!is.finite(dat$RT_sec) | dat$RT_sec <= 0) ||
+      anyNA(correct) || !all(correct %in% c(0, 1))) {
+    stop("AI/Tool data require finite positive RTs and binary Is_Correct values.")
+  }
+  dat$Error_Flag <- 1 - correct
+  dat$AI_vs_Tool <- as.integer(dat$Sentence_Category == "AI")
+  dat$Participant_Private_ID <- factor(dat$Participant_Private_ID)
+  n_original <- nlevels(dat$Participant_Private_ID)
+  if (anyNA(dat$Sentence_ID) ||
+      anyDuplicated(dat[c("Participant_Private_ID", "Sentence_ID")])) {
+    stop("Missing sentence IDs or duplicate participant-by-sentence trials.")
+  }
+  cell_counts <- table(dat$Participant_Private_ID,
+                       factor(dat$Sentence_Category, levels = c("AI", "Tool")))
+  if (!all(cell_counts == 22L) ||
+      any(vapply(split(dat$Sentence_ID, dat$Sentence_Category),
+                 function(x) length(unique(x)), integer(1)) != 22L)) {
+    stop("Expected the original complete design: 22 AI and 22 Tool trials per person.")
+  }
+  N_grid <- sort(unique(as.integer(c(N_grid, n_original))))
+  
+  # Keep all valid RTs, as in the original PRIMARY analysis. The trimming used
+  # solely for figures in Working_Script is deliberately not applied here.
+  dir.create(output_parent, recursive = TRUE, showWarnings = FALSE)
+  out_dir <- tempfile(pattern = "AI_Tool_simr_", tmpdir = output_parent)
+  if (!dir.create(out_dir)) stop("Cannot create the output directory.")
+  cat("\nOutput directory:", normalizePath(out_dir), "\n")
+  cat("Practice-failure exclusions:", length(failed_ids), "participants\n")
+  cat("Retained:", n_original, "participants;", nrow(dat), "AI/Tool trials\n")
+  cat("Analysable N grid:", paste(N_grid, collapse = ", "), "\n")
+  cat("Simulations per outcome and N:", nsim, "\n\n")
+  utils::write.csv(data.frame(
+    participants_before = length(unique(raw$Participant_Private_ID)),
+    excluded_failed_both = length(failed_ids), participants_retained = n_original,
+    AI_Tool_trials_retained = nrow(dat)
+  ), file.path(out_dir, "exclusion_summary.csv"), row.names = FALSE)
+  writeLines(capture.output(utils::sessionInfo()), file.path(out_dir, "sessionInfo.txt"))
+  settings <- list(N_grid = N_grid, nsim = nsim, alpha = alpha,
+                   effect_multiplier = effect_multiplier, seed = seed,
+                   reused_model_file = model_rds,
+                   design = "Original study: 22 AI + 22 Tool trials per participant",
+                   correct_only_RT = FALSE, item_random_effects = FALSE,
+                   test = "Two-sided Wald z", simr_version = as.character(utils::packageVersion("simr")))
+  saveRDS(settings, file.path(out_dir, "settings.rds"))
+  
+  # Numeric 0/1 coding makes the target coefficient explicitly AI minus Tool,
+  # irrespective of global factor-contrast options in the existing R session.
+  control <- lme4::glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e5))
+  if (is.null(model_rds)) {
+    models <- list(
+      RT = lme4::glmer(
+        RT_sec ~ AI_vs_Tool + (1 + AI_vs_Tool | Participant_Private_ID),
+        data = dat, family = Gamma(link = "log"), control = control, na.action = na.fail
+      ),
+      Error = lme4::glmer(
+        Error_Flag ~ AI_vs_Tool + (1 + AI_vs_Tool | Participant_Private_ID),
+        data = dat, family = binomial(link = "logit"), control = control, na.action = na.fail
+      )
+    )
+  } else {
+    models <- readRDS(model_rds)
+    if (!is.list(models) || !all(c("RT", "Error") %in% names(models))) {
+      stop("model_rds must contain the RT and Error models saved by this appendix.")
+    }
+    models <- models[c("RT", "Error")]
+    for (nm in names(models)) {
+      m <- models[[nm]]
+      if (!inherits(m, "glmerMod") ||
+          !identical(names(lme4::fixef(m)), c("(Intercept)", "AI_vs_Tool"))) {
+        stop("Saved ", nm, " model has an unexpected class or fixed-effect structure.")
+      }
+      mf <- stats::model.frame(m)
+      expected_y <- if (nm == "RT") dat$RT_sec else dat$Error_Flag
+      expected_family <- if (nm == "RT") "Gamma" else "binomial"
+      expected_link <- if (nm == "RT") "log" else "logit"
+      if (!identical(stats::family(m)$family, expected_family) ||
+          !identical(stats::family(m)$link, expected_link) ||
+          !identical(as.character(mf$Participant_Private_ID), as.character(dat$Participant_Private_ID)) ||
+          !identical(as.numeric(mf$AI_vs_Tool), as.numeric(dat$AI_vs_Tool)) ||
+          !identical(as.numeric(stats::model.response(mf)), as.numeric(expected_y))) {
+        stop("Saved ", nm, " model does not match the current cleaned data and model family.")
+      }
+      # Attach the current data explicitly rather than relying on a saved call's
+      # reference to the local variable dat in its original function environment.
+      models[[nm]] <- simr::`getData<-`(m, value = dat)
+    }
+    cat("Reusing original fitted models from:", model_rds, "\n")
+  }
+  saveRDS(models, file.path(out_dir, "fitted_original_models.rds"))
+  writeLines(capture.output(lapply(models, summary)), file.path(out_dir, "model_summaries.txt"))
+  
+  # Do not silently simplify a random-effects structure or simulate from a model
+  # that did not converge. Singular fits are flagged but are not automatically
+  # rejected: a boundary variance estimate is distinct from optimizer failure.
+  diagnostics <- do.call(rbind, lapply(names(models), function(nm) {
+    m <- models[[nm]]
+    msg <- m@optinfo$conv$lme4$messages
+    # lme4 reports a boundary/singular fit in this same message slot.
+    bad_msg <- msg[!grepl("boundary.*singular", msg, ignore.case = TRUE)]
+    opt_code <- unlist(m@optinfo$conv$opt)
+    data.frame(outcome = nm, singular = lme4::isSingular(m),
+               converged = !length(bad_msg) && !any(opt_code != 0),
+               convergence_messages = paste(msg, collapse = " | "))
+  }))
+  utils::write.csv(diagnostics, file.path(out_dir, "model_diagnostics.csv"), row.names = FALSE)
+  print(diagnostics)
+  if (any(!diagnostics$converged)) {
+    stop("An original model did not converge. Inspect model_diagnostics.csv before simulation.")
+  }
+  if (any(diagnostics$singular)) {
+    warning("At least one original model is singular; inspect its variance estimates before interpretation.")
+  }
+  
+  effect_table <- do.call(rbind, lapply(names(models), function(nm) {
+    b <- unname(lme4::fixef(models[[nm]])["AI_vs_Tool"])
+    data.frame(outcome = nm, fitted_log_effect_AI_minus_Tool = b,
+               simulated_log_effect_AI_minus_Tool = b * effect_multiplier,
+               simulated_AI_Tool_ratio = exp(b * effect_multiplier),
+               ratio_type = if (nm == "RT") "Conditional mean RT ratio" else "Conditional error odds ratio")
+  }))
+  utils::write.csv(effect_table, file.path(out_dir, "simulation_effects.csv"), row.names = FALSE)
+  print(effect_table)
+  
+  # extend() changes participant count, preserving each person's 44-trial layout.
+  # Use CHARACTER IDs during extension: simr's factor branch cannot shorten a
+  # 145-level factor to 50 levels. Restore factor IDs only AFTER extension.
+  # doSim() draws new random effects; this does not merely duplicate observed RTs.
+  # No item effects are estimated, matching the primary models in Working_Script.
+  # Consequently, these calculations do not quantify generalisation to new items.
+  results <- NULL
+  for (j in seq_along(models)) {
+    nm <- names(models)[j]
+    generating_model <- models[[j]]
+    if (effect_multiplier != 1) {
+      beta <- lme4::fixef(generating_model)
+      beta["AI_vs_Tool"] <- beta["AI_vs_Tool"] * effect_multiplier
+      generating_model <- simr::`fixef<-`(generating_model, value = beta)
+    }
+    template_data <- simr::getData(generating_model)
+    template_data$Participant_Private_ID <- as.character(template_data$Participant_Private_ID)
+    generating_model <- simr::`getData<-`(generating_model, value = template_data)
+    for (N in N_grid) {
+      cat("\n---", nm, ": N =", N, "---\n")
+      model_N <- simr::extend(generating_model, along = "Participant_Private_ID", n = N)
+      design_N <- simr::getData(model_N)
+      design_N$Participant_Private_ID <- factor(design_N$Participant_Private_ID)
+      model_N <- simr::`getData<-`(model_N, value = design_N)
+      stopifnot(length(unique(design_N$Participant_Private_ID)) == N,
+                nrow(design_N) == N * 44L,
+                all(table(design_N$Participant_Private_ID,
+                          factor(design_N$Sentence_Category,
+                                 levels = c("AI", "Tool"))) == 22L))
+      this_seed <- as.integer(seed + j * 10000L + match(N, N_grid))
+      ps <- simr::powerSim(
+        model_N, test = simr::fixed("AI_vs_Tool", method = "z"),
+        fitOpts = list(control = control),
+        nsim = nsim, alpha = alpha, seed = this_seed, progress = TRUE
+      )
+      # Save after EVERY cell so completed runs survive an interruption.
+      saveRDS(ps, file.path(out_dir, sprintf("simr_%s_N%04d.rds", nm, N)))
+      s <- as.data.frame(summary(ps, level = 0.95, method = "exact"))
+      count_indices <- function(x) {
+        if (is.null(x) || !nrow(x)) return(0L)
+        length(unique(x$index))
+      }
+      row <- data.frame(
+        outcome = nm, N_analysable = N, trials_per_person = 44L,
+        alpha = alpha, effect_multiplier = effect_multiplier,
+        nsim = s$trials, significant = s$successes,
+        power = s$mean, MC_CI_low = s$lower, MC_CI_high = s$upper,
+        simulations_with_missing_p = sum(!is.finite(ps$pval)),
+        simulations_with_errors = count_indices(ps$errors),
+        simulations_with_warnings = count_indices(ps$warnings),
+        simulations_with_messages = count_indices(ps$messages), seed = this_seed
+      )
+      results <- rbind(results, row)
+      utils::write.csv(results, file.path(out_dir, "power_results.csv"), row.names = FALSE)
+      writeLines(capture.output(list(errors = ps$errors, warnings = ps$warnings,
+                                     messages = ps$messages)),
+                 file.path(out_dir, sprintf("diagnostics_%s_N%04d.txt", nm, N)))
+      print(row, row.names = FALSE)
+    }
+  }
+  
+  # These are the smallest TESTED N values meeting a target. No interpolation.
+  # Missing p values are counted as non-rejections by simr, not silently dropped.
+  # Do not select an N with fitting errors, warnings, or missing p values.
+  # Messages (including singular-fit messages) remain separately visible for review.
+  minimum_N <- do.call(rbind, lapply(names(models), function(nm) {
+    x <- results[results$outcome == nm, ]
+    clean <- x$simulations_with_missing_p == 0 & x$simulations_with_errors == 0 &
+      x$simulations_with_warnings == 0
+    do.call(rbind, lapply(c(0.80, 0.90), function(target) {
+      point_candidates <- x$N_analysable[clean & x$power >= target]
+      lower_candidates <- x$N_analysable[clean & x$MC_CI_low >= target]
+      data.frame(outcome = nm, target_power = target,
+                 first_tested_N_point_estimate = if (length(point_candidates)) min(point_candidates) else NA_integer_,
+                 first_tested_N_MC_lower_bound = if (length(lower_candidates)) min(lower_candidates) else NA_integer_)
+    }))
+  }))
+  utils::write.csv(minimum_N, file.path(out_dir, "minimum_tested_N.csv"), row.names = FALSE)
+  cat("\n--- Minimum tested analysable N (NA = no eligible grid point) ---\n")
+  print(minimum_N, row.names = FALSE)
+  cat("\nPower and intervals are proportions (e.g., 0.80 = 80%).\n",
+      "Intervals describe Monte Carlo uncertainty only, not uncertainty in pilot parameters.\n",
+      "Targets are marginal per outcome; they do not estimate joint power for both outcomes.\n",
+      "Inspect diagnostics before using any sample-size estimate.\n", sep = "")
+  invisible(list(results = results, minimum_N = minimum_N,
+                 fitted_models = models, output_directory = normalizePath(out_dir)))
+}
+
+# --- RUN -----------------------------------------------------------------------
+if (!is.null(pa_csv_path)) {
+  pa_input <- utils::read.csv(pa_csv_path, stringsAsFactors = FALSE)
+} else if (exists("df_full_data", inherits = TRUE)) {
+  pa_input <- get("df_full_data", inherits = TRUE)
+} else {
+  stop("Run your original data-loading section first, or set pa_csv_path above.")
+}
+
+pa_results <- pa_run_power(
+  raw = pa_input, N_grid = pa_N_grid, nsim = pa_nsim, alpha = pa_alpha,
+  effect_multiplier = pa_effect_multiplier, seed = pa_seed,
+  output_parent = pa_output_parent, model_rds = pa_model_rds
+)
+
+# Main outputs:
+# pa_results$results            : power estimates and exact 95% Monte Carlo CIs
+# pa_results$minimum_N          : first tested N meeting 80% / 90% per outcome
+# pa_results$output_directory   : all saved CSV, RDS, and diagnostic files
+#
+# To reduce runtime for the final run: narrow pa_N_grid around the transition
+# found in the screening run, and then set pa_nsim <- 1000L (or higher).
+# To assess smaller effects: set pa_effect_multiplier <- 0.75 and rerun.
+# For RT this scales the log mean ratio; for errors it scales the log odds ratio.
+# Alpha = .05 is per outcome. Set pa_alpha <- .025 for a two-test Bonferroni rule
+# if that matches your planned inferential decision. N excludes practice failures.
